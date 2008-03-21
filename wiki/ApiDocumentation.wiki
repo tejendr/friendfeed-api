@@ -22,6 +22,15 @@ All of the API requests that output feeds are available in four formats: [http:/
 
 The JSON form of the feeds has the following structure:
 
-  * `<root>`
-    * `entries[]`
-      * `id`
+  * `entries[]`
+    * `id` - the !FriendFeed entry UUID, used to add comments/likes to the entry
+    * `title` - the entry title
+    * `link` - the entry link
+    * `service{}` - the service from which the entry came
+      * `id` - the !FriendFeed ID for the service, e.g., "picasa"
+      * `name` - the official name of the servuce, e.g., "Picasa Web Albums"
+      * `profileUrl` - the user's profile URL on this service
+    * `user{}` - the user who shared this entry
+      * `id` - the !FriendFeed UUID of the user
+      * `nickname` - the !FriendFeed nickname, used in !FriendFeed URLs
+      * `profileUrl` - the !FriendFeed profile URL for this user

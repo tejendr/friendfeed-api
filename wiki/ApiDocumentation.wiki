@@ -92,9 +92,18 @@ All of the feed methods below support the following additional arguments:
 
 === /api/feed/public ===
 
-Returns the most recent public entries on FriendFeed:
+Returns the most recent public entries on !FriendFeed:
 
 http://friendfeed.com/api/feed/public
+
+Using the Python library:
+
+{{
+service = friendfeed.FriendFeed()
+feed = service.fetch_public_feed()
+for entry in feed["entries"]:
+    print entry["title"]
+}}
 
 === /api/feed/user === 
 

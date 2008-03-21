@@ -25,7 +25,7 @@ The other API requests, like posting a new comment on an entry, only support the
 
 == Authentication ==
 
-If you are publishing data to FriendFeed or if you are requesting the feed that includes data from a user with a private feed, your HTTP requests must be authenticated.
+If you are publishing data to !FriendFeed or if you are requesting the feed that includes data from a user with a private feed, your HTTP requests must be authenticated.
 
 All !FriendFeed users have a *Remote Key* to provide third party applications access to their !FriendFeed. A !FriendFeed Remote Key is just like a password, except that it is only used for third party applications, so it only provides access to the functionality defined by the API. Users can easily reset it if a third party application abuses the API.
 
@@ -36,7 +36,7 @@ The Python and PHP libraries available at http://code.google.com/p/friendfeed-ap
 
 == JSON Callbacks ==
 
-The JSON output format supports an additional argument `callback=` that wraps the JSON output in a function call to a function of your choice. This is useful to use the API from within !JavaScript within the browser. For example, http://friendfeed.com/api/feed/public?callback=foo outputs:
+The JSON output format supports an additional argument `callback=` that wraps the JSON output in a function call to a function of your choice. This functionality is available to enable you to use the API with !JavaScript within a web browser. For example, http://friendfeed.com/api/feed/public?callback=foo outputs:
 
 {{{
 foo({"entries":[...]})

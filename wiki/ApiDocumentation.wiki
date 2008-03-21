@@ -1,3 +1,5 @@
+*The !FriendFeed API is still private. Please do not distribute information about the API until it officially launches*
+
 = !FriendFeed API Documentation =
 
 = Introduction =

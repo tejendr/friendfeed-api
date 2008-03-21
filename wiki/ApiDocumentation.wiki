@@ -114,3 +114,25 @@ http://friendfeed.com/api/feed/user?nickname=bret
 http://friendfeed.com/api/feed/user?nickname=bret,paul,jim
 
 If more than one nickname is specified, the feed most recent entries from all of the given users. If any one of the users has a private feed, authentication is required.
+
+Using the Python library:
+
+{{{
+service = friendfeed.FriendFeed()
+feed = service.fetch_multi_user_feed(["bret", "jim", "paul"])
+for entry in feed["entries"]:
+    print entry["title"]
+}}}
+
+=== /api/feed/home ===
+
+Returns the entries the authenticated user would see on their FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries.
+
+Using the Python library:
+
+{{{
+service = friendfeed.FriendFeed(nickname, remote_key)
+feed = service.fetch_home_feed()
+for entry in feed["entries"]:
+    print entry["title"]
+}}}

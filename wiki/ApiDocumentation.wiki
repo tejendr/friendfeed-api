@@ -45,3 +45,12 @@ The JSON form of the feeds has the following structure:
       * `user{}` - same structure as the `user{}` structure above
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.
+
+
+== Authentication ==
+
+Some parts of the !FriendFeed API require authentication. If you are requesting the feed that includes data from a user with a private feed, the request must be authenticated. Likewise, if you are publishing data to FriendFeed, your requests always have to be authenticated.
+
+All !FriendFeed users have a *Remote Key* to provide third party applications access to their !FriendFeed. A !FriendFeed Remote Key is just like a password, except that it is only used for third party applications, so it only provides access to the functionality defined by the API. Users can easily reset it if a third party application abuses the API.
+
+All requests that require authentication use [http://en.wikipedia.org/wiki/Basic_access_authentication HTTP Basic Authentication]. The username should be the user's nickname, and the password should be the user's Remote Key. You can direct user's to https://friendfeed.com/account/api to get their remote key if they have not memorized it.

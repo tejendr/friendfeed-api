@@ -88,7 +88,7 @@ All of the feed methods below support the following additional arguments:
   * `num` - return `num` entries starting from `start`, e.g., `num=10`
 
 
-== Feed Methods ==
+== Methods ==
 
 === /api/feed/public - Fetch all Public Entries ===
 
@@ -140,3 +140,17 @@ feed = service.fetch_home_feed()
 for entry in feed["entries"]:
     print entry["title"]
 }}}
+
+
+= Publishing To !FriendFeed =
+
+== Create New Entries ==
+
+=== /feed/share - Publish Links or Messages ===
+
+A POST request to `/feed/share` will publish a new entry on the authenticated user's feed. The available arguments are:
+
+  * `title` - *required* - The text of the new entry.
+  * `link` - The URL of the new entry. If it is not specified, the new entry will look like a quoted message. If specified, it will look like a link.
+  * `comment` - If specified, the given comment text is posted a comment under the new entry.
+  * `image_N__url`, `image_N)_link` - The thumbnail images for the entry, specified from a 0-based index.

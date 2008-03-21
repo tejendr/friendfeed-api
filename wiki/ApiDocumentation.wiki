@@ -98,12 +98,12 @@ http://friendfeed.com/api/feed/public
 
 Using the Python library:
 
-{{
+{{{
 service = friendfeed.FriendFeed()
 feed = service.fetch_public_feed()
 for entry in feed["entries"]:
     print entry["title"]
-}}
+}}}
 
 === /api/feed/user === 
 

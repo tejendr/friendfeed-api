@@ -148,7 +148,7 @@ for entry in feed["entries"]:
 
 === /api/share - Publish Links or Messages ===
 
-A POST request to `/feed/share` will publish a new entry on the authenticated user's feed. The available arguments are:
+A POST request to `/feed/share` will publish a new entry on the authenticated user's feed. The arguments are:
 
   * `title` - *required* - The text of the new entry.
   * `link` - The URL of the new entry. If it is not specified, the new entry will look like a quoted message. If specified, it will look like a link.
@@ -195,10 +195,10 @@ If any images are uploaded with the `/api/share` request, the original and the t
 
 === /api/comment - Add or Edit Comments ===
 
-A POST request to `/feed/comment` will add a comment or edit an existing comment on a FriendFeed entry.
+A POST request to `/feed/comment` will add a comment or edit an existing comment on a !FriendFeed entry. The arguments are:
 
-  * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached
-  * `body` - *required* - The textual body of the comment
+  * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
+  * `body` - *required* - The textual body of the comment.
   * `comment` - If given, the !FriendFeed UUID of the comment to edit. If not given, the request will create a new comment.
 
 Example usage from the Python library:
@@ -216,3 +216,38 @@ Example usage with `curl`:
 {{{
 curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000&body=Testing+the+FriendFeed+API" http://friendfeed.com/api/comment
 }}}
+
+=== /api/comment/delete - Delete a Comments ===
+
+A POST request to `/feed/comment/delete` will delete an existing comment. The arguments are:
+
+  * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
+  * `comment` - *required* - The !FriendFeed UUID of the comment to delete.
+
+
+=== /api/like - "Like" an Entry ===
+
+A POST request to `/feed/like` will add a "Like" to a !FriendFeed entry for the authenticated user.
+
+  * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached
+
+Example usage from the Python library:
+
+{{{
+service = friendfeed.FriendFeed(nickname, remote_key)
+service.add_like("550e8400-e29b-41d4-a716-446655440000")
+}}}
+
+Example usage with `curl`:
+
+{{{
+curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000" http://friendfeed.com/api/like
+}}}
+
+
+
+=== /api/like/delete - Delete a "Like" ===
+
+A POST request to `/feed/like/delete` will delete an existing "Like." The arguments are:
+
+  * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.

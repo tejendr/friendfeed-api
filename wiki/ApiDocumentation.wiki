@@ -24,8 +24,10 @@ The JSON form of the feeds has the following structure:
 
   * `entries[]`
     * `id` - the !FriendFeed entry UUID, used to add comments/likes to the entry
-    * `title` - the entry title
-    * `link` - the entry link
+    * `title`
+    * `link`
+    * `published`
+    * `updated`
     * `service{}` - the service from which the entry came
       * `id` - the !FriendFeed ID for the service, e.g., "picasa"
       * `name` - the official name of the servuce, e.g., "Picasa Web Albums"
@@ -34,3 +36,12 @@ The JSON form of the feeds has the following structure:
       * `id` - the !FriendFeed UUID of the user
       * `nickname` - the !FriendFeed nickname, used in !FriendFeed URLs
       * `profileUrl` - the !FriendFeed profile URL for this user
+    * `comments[]`
+      * `date`
+      * `user{}` - same structure as the `user{}` structure above
+      * `body` - the textual body of the comment
+    * `likes[]`
+      * `date`
+      * `user{}` - same structure as the `user{}` structure above
+
+      * `date` - the date

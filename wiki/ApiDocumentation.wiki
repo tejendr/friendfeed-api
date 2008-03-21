@@ -2,7 +2,7 @@
 
 = Introduction =
 
-This document is the official reference for the [http://friendfeed.com FriendFeed] API, which lets developers interact with FriendFeed web site programmatically via simple HTTP requests.
+This document is the official reference for the [http://friendfeed.com FriendFeed] API, which lets developers interact with !FriendFeed web site programmatically via simple HTTP requests.
 
 
 = Core Concepts =

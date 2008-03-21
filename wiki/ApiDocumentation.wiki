@@ -96,7 +96,7 @@ Returns the most recent public entries on !FriendFeed:
 
 http://friendfeed.com/api/feed/public
 
-Using the Python library:
+Using the !FriendFeed Python library:
 
 {{{
 service = friendfeed.FriendFeed()
@@ -115,7 +115,7 @@ http://friendfeed.com/api/feed/user?nickname=bret,paul,jim
 
 If more than one nickname is specified, the feed most recent entries from all of the given users. If any one of the users has a private feed, authentication is required.
 
-Using the Python library:
+Using the !FriendFeed Python library:
 
 {{{
 service = friendfeed.FriendFeed()
@@ -132,7 +132,7 @@ http://friendfeed.com/api/feed/home
 
 Authentication is always required.
 
-Using the Python library:
+Using the !FriendFeed Python library:
 
 {{{
 service = friendfeed.FriendFeed(nickname, remote_key)
@@ -146,7 +146,7 @@ for entry in feed["entries"]:
 
 == Create New Entries ==
 
-=== /feed/share - Publish Links or Messages ===
+=== /api/share - Publish Links or Messages ===
 
 A POST request to `/feed/share` will publish a new entry on the authenticated user's feed. The available arguments are:
 
@@ -155,7 +155,7 @@ A POST request to `/feed/share` will publish a new entry on the authenticated us
   * `comment` - If specified, the given comment text is posted a comment under the new entry.
   * `imageN_url`, `imageN_link` - The thumbnail images for the entry, specified from a 0-based index. `image0_url` specifies the URL of the image, which will be resized to the maximum size of a thumbnail and stored on FriendFeed's servers. If `image0_link` is not given, the thumbnail will link to the main `link` URL. If it is specified, the thumbnail will link to the specified `image0_link`.
 
-Example usage from the Python library:
+Example usage with the !FriendFeed Python library:
 
 {{{
 service = friendfeed.FriendFeed(nickname, remote_key)
@@ -181,4 +181,38 @@ Example usage with `curl`:
 
 {{{
 curl -u "nickname:remotekey" -d "title=Testing+the+FriendFeed+API&link=http://friendfeed.com/" http://friendfeed.com/api/share
+}}}
+
+
+=== Upload Images with Entries ===
+
+The `/api/share` method can also accept uploaded images encoded as `multipart/form-data`. This encoding is the standard used for file uploads within web browsers.
+
+If any images are uploaded with the `/api/share` request, the original and the thumbnail are stored on FriendFeed's servers, and the thumbnail is displayed with the entry.
+
+
+== Comment and Like Entries ==
+
+=== /api/comment - Add or Edit Comments ===
+
+A POST request to `/feed/comment` will add a comment or edit an existing comment on a FriendFeed entry.
+
+  * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached
+  * `body` - *required* - The textual body of the comment
+  * `comment` - If given, the !FriendFeed UUID of the comment to edit. If not given, the request will create a new comment.
+
+Example usage from the Python library:
+
+{{{
+service = friendfeed.FriendFeed(nickname, remote_key)
+service.add_comment(
+    entry="550e8400-e29b-41d4-a716-446655440000",
+    body="Testing the FriendFeed API",
+)
+}}}
+
+Example usage with `curl`:
+
+{{{
+curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000&body=Testing+the+FriendFeed+API" http://friendfeed.com/api/comment
 }}}

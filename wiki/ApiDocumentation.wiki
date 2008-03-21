@@ -76,3 +76,7 @@ The JSON form of the feeds has the following structure:
       * `user{}` - same structure as the `user{}` structure above
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.
+
+== Feed Methods ==
+
+=== /api/feed/public - All Public Entries ===

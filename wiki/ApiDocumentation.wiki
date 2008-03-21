@@ -49,7 +49,9 @@ All authentication is ignored if the `callback=` argument is given, so JSON call
 
 = Reading !FriendFeed Feeds =
 
-== Feed Formats ==
+== Overview ==
+
+=== Feed Formats ===
 
 The JSON form of the feeds has the following structure:
 
@@ -77,6 +79,29 @@ The JSON form of the feeds has the following structure:
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.
 
+=== Filtering & Paging ===
+
+All of the feed methods below support the following additional arguments:
+
+  * `service` - only return entries from the service with the given ID, e.g., `service=twitter`
+  * `start` - return entries starting with the given index, e.g., `start=30`
+  * `num` - return `num` entries starting from `start`, e.g., `num=10`
+
+
 == Feed Methods ==
 
-=== /api/feed/public - All Public Entries ===
+=== /api/feed/public ===
+
+Returns the most recent public entries on FriendFeed:
+
+http://friendfeed.com/api/feed/public
+
+=== /api/feed/user === 
+
+Returns the most recent entries from one or more users, specified by nickname:
+
+http://friendfeed.com/api/feed/user?nickname=bret
+
+http://friendfeed.com/api/feed/user?nickname=bret,paul,jim
+
+If more than one nickname is specified, the feed most recent entries from all of the given users. If any one of the users has a private feed, authentication is required.

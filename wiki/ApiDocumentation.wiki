@@ -217,7 +217,7 @@ Example usage with `curl`:
 curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000&body=Testing+the+FriendFeed+API" http://friendfeed.com/api/comment
 }}}
 
-=== /api/comment/delete - Delete a Comments ===
+=== /api/comment/delete - Delete a Comment ===
 
 A POST request to `/feed/comment/delete` will delete an existing comment. The arguments are:
 

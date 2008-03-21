@@ -144,6 +144,8 @@ for entry in feed["entries"]:
 
 = Publishing To !FriendFeed =
 
+All of the calls to publish information to !FriendFeed are HTTP requests. You can perform test calls from a web browser using the HTTP Basic Authentication built into your browser at http://friendfeed.com/static/html/apitest.html.
+
 == Create New Entries ==
 
 === /api/share - Publish Links or Messages ===

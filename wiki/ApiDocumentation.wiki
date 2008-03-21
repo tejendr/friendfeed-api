@@ -2,7 +2,7 @@
 
 = Introduction =
 
-The [http://friendfeed.com/ FriendFeed API] enables developers interact with the [http://friendfeed.com/ FriendFeed] web site programmatically via simple HTTP requests.
+The [http://friendfeed.com/api/ FriendFeed API] enables developers interact with the [http://friendfeed.com/ FriendFeed] web site programmatically via simple HTTP requests.
 
 This is the technical documentation for the API. For more information on the product, see http://friendfeed.com/api/. The !FriendFeed API Terms of Service are available at http://friendfeed.com/api/terms.
 

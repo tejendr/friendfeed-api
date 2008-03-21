@@ -128,7 +128,7 @@ for entry in feed["entries"]:
 
 === /api/feed/home - Fetch the Friends Feed ===
 
-Returns the entries the authenticated user would see on their FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries:
+Returns the entries the authenticated user would see on their !FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries:
 
 http://friendfeed.com/api/feed/home
 
@@ -192,7 +192,7 @@ curl -u "nickname:remotekey" -d "title=Testing+the+FriendFeed+API&link=http://fr
 
 The `/api/share` method can also accept uploaded images encoded as `multipart/form-data`. This encoding is the standard used for file uploads within web browsers.
 
-If any images are uploaded with the `/api/share` request, the original and the thumbnail are stored on FriendFeed's servers, and the thumbnail is displayed with the entry.
+If any images are uploaded with the `/api/share` request, the original and the thumbnail are stored on !FriendFeed's servers, and the thumbnail is displayed with the entry.
 
 
 == Comment and Like Entries ==

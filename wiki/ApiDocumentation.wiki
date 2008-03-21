@@ -153,4 +153,32 @@ A POST request to `/feed/share` will publish a new entry on the authenticated us
   * `title` - *required* - The text of the new entry.
   * `link` - The URL of the new entry. If it is not specified, the new entry will look like a quoted message. If specified, it will look like a link.
   * `comment` - If specified, the given comment text is posted a comment under the new entry.
-  * `image_N__url`, `image_N)_link` - The thumbnail images for the entry, specified from a 0-based index.
+  * `imageN_url`, `imageN_link` - The thumbnail images for the entry, specified from a 0-based index. `image0_url` specifies the URL of the image, which will be resized to the maximum size of a thumbnail and stored on FriendFeed's servers. If `image0_link` is not given, the thumbnail will link to the main `link` URL. If it is specified, the thumbnail will link to the specified `image0_link`.
+
+Example usage from the Python library:
+
+{{{
+service = friendfeed.FriendFeed(nickname, remote_key)
+
+# Publish a text message
+service.publish_message("Testing the FriendFeed API")
+
+# Publish a link
+service.publish_link("Testing the FriendFeed API", "http://friendfeed.com/api/")
+
+# Publish a link with thumbnail images
+service.publish_link(
+    title="Testing the FriendFeed API",
+    link="http://friendfeed.com/api/",
+    image_urls=[
+        "http://friendfeed.com/static/images/jim-superman.jpg",
+        "http://friendfeed.com/static/images/logo.png",
+    ],
+)
+}}}
+
+Example usage with `curl`:
+
+{{{
+curl -u "nickname:remotekey" -d "title=Testing+the+FriendFeed+API&link=http://friendfeed.com/" http://friendfeed.com/api/share
+}}}

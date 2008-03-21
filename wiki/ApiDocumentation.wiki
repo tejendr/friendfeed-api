@@ -6,3 +6,11 @@ The [http://friendfeed.com/ FriendFeed API] enables developers interact with the
 
 This is the technical documentation for the API. For more information on the product, see http://friendfeed.com/api/. The !FriendFeed API Terms of Service are available at http://friendfeed.com/api/terms.
 
+
+= Core Concepts =
+
+== Requests and Data Formats ==
+
+All requests to the !FriendFeed API are simple HTTP GET and POST requests. For example, you can fetch the JSON version of the most recent 30 public entries published to !FriendFeed by fetching http://friendfeed.com/api/feed/public.
+
+All of the API requests that output feeds are available in four formats: [http://www.json.org/ JSON], a simple form of XML, [http://cyber.law.harvard.edu/rss/rss.html RSS 2.0], and [http://tools.ietf.org/html/rfc4287 Atom 1.0].

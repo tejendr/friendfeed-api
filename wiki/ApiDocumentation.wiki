@@ -49,8 +49,23 @@ The simple XML format (`output=xml`) has the same structure as the JSON. The RSS
 
 == Authentication ==
 
-Some parts of the !FriendFeed API require authentication. If you are requesting the feed that includes data from a user with a private feed, the request must be authenticated. Likewise, if you are publishing data to FriendFeed, your requests always have to be authenticated.
+If you are publishing data to FriendFeed or if you are requesting the feed that includes data from a user with a private feed, your HTTP requests must be authenticated.
 
 All !FriendFeed users have a *Remote Key* to provide third party applications access to their !FriendFeed. A !FriendFeed Remote Key is just like a password, except that it is only used for third party applications, so it only provides access to the functionality defined by the API. Users can easily reset it if a third party application abuses the API.
 
 All requests that require authentication use [http://en.wikipedia.org/wiki/Basic_access_authentication HTTP Basic Authentication]. The username should be the user's nickname, and the password should be the user's Remote Key. You can direct user's to https://friendfeed.com/account/api to get their remote key if they have not memorized it.
+
+The Python and PHP libraries available at http://code.google.com/p/friendfeed-api/ implement authentication for all methods that require it.
+
+
+== JSON Callbacks ==
+
+The JSON output format supports an additional argument `callback=` that wraps the JSON output in a function call to a function of your choice. This is useful to use the API from within JavaScript within the browser. For example, http://friendfeed.com/api/feed/public?callback=foo outputs:
+
+{{{
+foo({"entries":[...]})
+}}}
+
+Using JSON and callbacks, you can place the FriendFeed API request inside a `<script>` tag, and operate on the results with a function elsewhere in the JavaScript code on the page.
+
+All authentication is ignored if the `callback=` argument is given, so JSON callbacks only work with public feeds.

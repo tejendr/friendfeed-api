@@ -8,8 +8,8 @@ The [http://friendfeed.com/api/ FriendFeed API] enables developers interact with
 
 This is the technical documentation for the API. Other important links:
 
-  * [http://friendfeed.com/api/ FriendFeed API homepage]
-  * [http://groups.google.com/group/friendfeed-api FriendFeed API developer forum]
+  * [http://friendfeed.com/api/ FriendFeed API Homepage]
+  * [http://groups.google.com/group/friendfeed-api FriendFeed API Developer Forum]
   * [http://friendfeed.com/api/terms FriendFeed API Terms of Service]
 
 

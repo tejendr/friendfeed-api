@@ -6,9 +6,11 @@
 
 The [http://friendfeed.com/api/ FriendFeed API] enables developers interact with the [http://friendfeed.com/ FriendFeed] web site programmatically via simple HTTP requests.
 
-This is the technical documentation for the API. For more information on the product, see http://friendfeed.com/api/. The !FriendFeed API Terms of Service are available at http://friendfeed.com/api/terms.
+This is the technical documentation for the API. Other important links:
 
-You can discuss the !FriendFeed API with !FriendFeed employees and other developers in the [http://groups.google.com/group/friendfeed-api FriendFeed developer forum] on Google Groups.
+  * [http://friendfeed.com/api/ FriendFeed API homepage]
+  * [http://groups.google.com/group/friendfeed-api FriendFeed API developer forum]
+  * [http://friendfeed.com/api/terms FriendFeed API Terms of Service]
 
 
 = Core Concepts =

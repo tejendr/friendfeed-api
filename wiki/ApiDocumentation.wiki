@@ -144,6 +144,25 @@ for entry in feed["entries"]:
 }}}
 
 
+=== /api/feed/search - Search ===
+
+Executes a search over the entries in FriendFeed. If the request is authenticated, the default scope is over all of the entries in the authenticated user's Friends Feed. If the request is not authenticated, the default scope is over all public entries.
+
+http://friendfeed.com/api/feed/search?q=friendfeed
+
+The query syntax is the same syntax as http://friendfeed.com/advancedsearch. The query operators are:
+
+  * `who:` -restricts the search to a specific user, e.g., `who:bret`
+  * `service:` restricts the search to a specific service ID, e.g., `service:twitter`
+
+{{{
+service = friendfeed.FriendFeed()
+feed = service.search("who:bret friendfeed")
+for entry in feed["entries"]:
+    print entry["title"]
+}}}
+
+
 = Publishing To !FriendFeed =
 
 All of the calls to publish information to !FriendFeed are HTTP requests. You can perform test calls from a web browser using the HTTP Basic Authentication built into your browser at http://friendfeed.com/static/html/apitest.html.

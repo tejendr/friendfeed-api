@@ -126,6 +126,33 @@ for entry in feed["entries"]:
 }}}
 
 
+=== /api/feed/user/NICKNAME/comments - Fetch Entries a User Has Commented On === 
+
+Returns the most recent entries the user has commented on, ordered by the date of that user's comments:
+
+http://friendfeed.com/api/feed/user/bret/comments
+
+If the user has a private feed, authentication is required.
+
+
+=== /api/feed/user/NICKNAME/likes - Fetch Entries a User Has "Liked" === 
+
+Returns the most recent entries the user has "liked," ordered by the date of that user's "likes":
+
+http://friendfeed.com/api/feed/user/bret/comments
+
+If the user has a private feed, authentication is required.
+
+
+=== /api/feed/user/NICKNAME/discussion - Fetch Entries a User Has Commented On or "Liked" === 
+
+Returns the most recent entries the user has commented on or "liked":
+
+http://friendfeed.com/api/feed/user/bret/discussion
+
+If the user has a private feed, authentication is required.
+
+
 === /api/feed/user - Fetch Entries from Multiple Users === 
 
 Returns the most recent entries from a list of users, specified by nickname:

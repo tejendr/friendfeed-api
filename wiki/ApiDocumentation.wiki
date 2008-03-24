@@ -107,11 +107,28 @@ for entry in feed["entries"]:
     print entry["title"]
 }}}
 
-=== /api/feed/user - Fetch Entries from a Set of Users === 
 
-Returns the most recent entries from one or more users, specified by nickname:
+=== /api/feed/user/NICKNAME - Fetch Entries from a User === 
 
-http://friendfeed.com/api/feed/user?nickname=bret
+Returns the most recent entries from the user with the given nickname:
+
+http://friendfeed.com/api/feed/user/bret
+
+If the user has a private feed, authentication is required.
+
+Using the !FriendFeed Python library:
+
+{{{
+service = friendfeed.FriendFeed()
+feed = service.fetch_user_feed("bret")
+for entry in feed["entries"]:
+    print entry["title"]
+}}}
+
+
+=== /api/feed/user - Fetch Entries from Multiple Users === 
+
+Returns the most recent entries from a list of users, specified by nickname:
 
 http://friendfeed.com/api/feed/user?nickname=bret,paul,jim
 
@@ -125,6 +142,7 @@ feed = service.fetch_multi_user_feed(["bret", "jim", "paul"])
 for entry in feed["entries"]:
     print entry["title"]
 }}}
+
 
 === /api/feed/home - Fetch the Friends Feed ===
 

@@ -193,7 +193,7 @@ for entry in feed["entries"]:
 
 === /api/feed/search - Search ===
 
-Executes a search over the entries in FriendFeed. If the request is authenticated, the default scope is over all of the entries in the authenticated user's Friends Feed. If the request is not authenticated, the default scope is over all public entries.
+Executes a search over the entries in !FriendFeed. If the request is authenticated, the default scope is over all of the entries in the authenticated user's Friends Feed. If the request is not authenticated, the default scope is over all public entries.
 
 http://friendfeed.com/api/feed/search?q=friendfeed
 

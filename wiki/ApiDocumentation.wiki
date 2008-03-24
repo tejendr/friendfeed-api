@@ -139,7 +139,7 @@ If the user has a private feed, authentication is required.
 
 Returns the most recent entries the user has "liked," ordered by the date of that user's "likes":
 
-http://friendfeed.com/api/feed/user/bret/comments
+http://friendfeed.com/api/feed/user/bret/likes
 
 If the user has a private feed, authentication is required.
 

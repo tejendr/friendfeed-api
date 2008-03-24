@@ -155,6 +155,8 @@ The query syntax is the same syntax as http://friendfeed.com/advancedsearch. The
   * `who:` -restricts the search to a specific user, e.g., `who:bret`
   * `service:` restricts the search to a specific service ID, e.g., `service:twitter`
 
+Using the !FriendFeed Python library:
+
 {{{
 service = friendfeed.FriendFeed()
 feed = service.search("who:bret friendfeed")

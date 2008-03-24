@@ -39,7 +39,7 @@ All requests that require authentication use [http://en.wikipedia.org/wiki/Basic
 
 The Python and PHP libraries available at http://code.google.com/p/friendfeed-api/ implement authentication for all methods that require it.
 
-*Note*: We are currently exploring adding OAuth support as well. If you are interested in this support, let us know in the [http://groups.google.com/group/friendfeed-api FriendFeed developer forum].
+_ *Note*: We are currently exploring adding OAuth support as well. If you are interested in this support, let us know in the [http://groups.google.com/group/friendfeed-api FriendFeed developer forum]. _
 
 
 == JSON Callbacks ==

@@ -15,12 +15,12 @@ This is the technical documentation for the API. For more information on the pro
 
 All requests to the !FriendFeed API are simple HTTP GET and POST requests. For example, you can fetch the JSON version of the most recent 30 public entries published to !FriendFeed by fetching http://friendfeed.com/api/feed/public.
 
-All of the API requests that output feeds are available in four formats: [http://www.json.org/ JSON], a simple form of XML, [http://cyber.law.harvard.edu/rss/rss.html RSS 2.0], and [http://tools.ietf.org/html/rfc4287 Atom 1.0]. JSON is the default output format. To request a different output format, simply add an `output=` argument to the URL:
+All of the API requests that output feeds are available in four formats: [http://www.json.org/ JSON], a simple form of XML, [http://cyber.law.harvard.edu/rss/rss.html RSS 2.0], and [http://tools.ietf.org/html/rfc4287 Atom 1.0]. JSON is the default output format. To request a different output format, simply add an `format=` argument to the URL:
 
-  * http://friendfeed.com/api/feed/public?output=json
-  * http://friendfeed.com/api/feed/public?output=xml
-  * http://friendfeed.com/api/feed/public?output=rss
-  * http://friendfeed.com/api/feed/public?output=atom
+  * http://friendfeed.com/api/feed/public?format=json
+  * http://friendfeed.com/api/feed/public?format=xml
+  * http://friendfeed.com/api/feed/public?format=rss
+  * http://friendfeed.com/api/feed/public?format=atom
 
 The other API requests, like posting a new comment on an entry, only support the JSON and XML output formats since they do not output feed-oriented data.
 

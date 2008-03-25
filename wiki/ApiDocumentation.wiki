@@ -85,7 +85,7 @@ The JSON form of the feeds has the following structure:
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.
 
-Dates in JSON and dates in the !FriendFeed extension elements in the Atom and RSS feeds are in RFC 3339 format in UTC. You can parse them with the `strptime` string `"%Y-%m-%dT%H:%M:%SZ"`.
+Dates in JSON and dates in the !FriendFeed extension elements in the Atom and RSS feeds are in [http://www.ietf.org/rfc/rfc3339.txt RFC 3339] format in UTC. You can parse them with the `strptime` string `"%Y-%m-%dT%H:%M:%SZ"`.
 
 
 === Filtering & Paging ===

@@ -270,6 +270,8 @@ The `/api/share` method can also accept uploaded images encoded as `multipart/fo
 
 If any images are uploaded with the `/api/share` request, the original and the thumbnail are stored on !FriendFeed's servers, and the thumbnail is displayed with the entry.
 
+By default, the thumbnails will link to the destination link for the entry. If you want each uploaded image to link somewhere else, you can specify the link in the `IMAGENAME_link` argument. For example, if your uploaded image is POST argument `file0`, you can specify the link for that thumbnail as `file0_link`.
+
 
 == Comment and Like Entries ==
 

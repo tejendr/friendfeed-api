@@ -220,6 +220,9 @@ for entry in feed["entries"]:
 
 All of the calls to publish information to !FriendFeed are HTTP requests. You can perform test calls from a web browser using the HTTP Basic Authentication built into your browser at http://friendfeed.com/static/html/apitest.html.
 
+Requests to !FriendFeed are rate limited, which, e.g., limits the number and size of thumbnails you can upload in a day. Normal uses should fall well within our rate limits. If you encounter HTTP 403 errors because of rate limits, and you think the limit is erroneous, please let us know in the developer forum.
+
+
 == Create New Entries ==
 
 === /api/share - Publish Links or Messages ===

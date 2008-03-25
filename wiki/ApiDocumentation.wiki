@@ -199,7 +199,7 @@ Executes a search over the entries in !FriendFeed. If the request is authenticat
 
 http://friendfeed.com/api/feed/search?q=friendfeed
 
-The query syntax is the same syntax as http://friendfeed.com/advancedsearch. The query operators are:
+The query syntax is the same syntax as http://friendfeed.com/search/advanced. The query operators are:
 
   * `who:` -restricts the search to a specific user, e.g., `who:bret`
   * `service:` restricts the search to a specific service ID, e.g., `service:twitter`

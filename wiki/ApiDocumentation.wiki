@@ -9,7 +9,7 @@ This is the technical documentation for the API. Other important links:
   * [http://friendfeed.com/api/ FriendFeed API Homepage]
   * [http://groups.google.com/group/friendfeed-api FriendFeed API Developer Forum]
   * [http://friendfeed.com/api/guidelines FriendFeed API Application Guidelines]
-  * [http://code.google.com/p/friendfeed-api/downloads/list FriendFeed API Python and PHP Libraries]
+  * [http://code.google.com/p/friendfeed-api/ FriendFeed API Python and PHP Libraries]
 
 = Core Concepts =
 
@@ -118,7 +118,7 @@ Returns the most recent public entries on !FriendFeed:
 
 http://friendfeed.com/api/feed/public
 
-Using the !FriendFeed Python library:
+Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
 
 {{{
 service = friendfeed.FriendFeed()
@@ -136,7 +136,7 @@ http://friendfeed.com/api/feed/user/bret
 
 If the user has a private feed, authentication is required.
 
-Using the !FriendFeed Python library:
+Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
 
 {{{
 service = friendfeed.FriendFeed()
@@ -181,7 +181,7 @@ http://friendfeed.com/api/feed/user?nickname=bret,paul,jim
 
 If more than one nickname is specified, the feed most recent entries from all of the given users. If any one of the users has a private feed, authentication is required.
 
-Using the !FriendFeed Python library:
+Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
 
 {{{
 service = friendfeed.FriendFeed()
@@ -199,7 +199,7 @@ http://friendfeed.com/api/feed/home
 
 Authentication is always required.
 
-Using the !FriendFeed Python library:
+Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
 
 {{{
 service = friendfeed.FriendFeed(nickname, remote_key)
@@ -248,7 +248,7 @@ A POST request to `/api/share` will publish a new entry on the authenticated use
   * `comment` - If specified, the given text is posted as a comment under the new entry.
   * `imageN_url`, `imageN_link` - The thumbnail images for the entry, specified from a 0-based index. `image0_url` specifies the URL of the image, which will be resized to the maximum size of a thumbnail and stored on !FriendFeed's servers. If `image0_link` is not given, the thumbnail will link to the main `link` URL. If it is specified, the thumbnail will link to the specified `image0_link`.
 
-Example usage with the !FriendFeed Python library:
+Example usage with the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
 
 {{{
 service = friendfeed.FriendFeed(nickname, remote_key)

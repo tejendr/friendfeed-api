@@ -82,6 +82,19 @@ The JSON form of the feeds has the following structure:
     * `likes[]`
       * `date`
       * `user{}` - same structure as the `user{}` structure above
+    * `media[]` - the videos/images associated with the entry
+      * `title?` - the title of the media file
+      * `player?` - the player for this media file (e.g., the YouTube.com URL with the embedded video)
+      * `thumbnails[]` - the thumbnails for this media file
+        * `url`
+        * `width`
+        * `height`
+      * `content[]` - the different versions of the media file
+        * `url`
+        * `type` - the MIME type of the media file
+        * `width`
+        * `height`
+
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.
 

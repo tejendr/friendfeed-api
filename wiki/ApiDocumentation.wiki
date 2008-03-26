@@ -228,7 +228,7 @@ Requests to !FriendFeed are rate limited, which, e.g., limits the number and siz
 
 === /api/share - Publish Links or Messages ===
 
-A POST request to `/feed/share` will publish a new entry on the authenticated user's feed. The arguments are:
+A POST request to `/api/share` will publish a new entry on the authenticated user's feed. The arguments are:
 
   * `title` - *required* - The text of the new entry.
   * `link` - The URL of the new entry. If it is not specified, the new entry will look like a quoted message. If specified, it will look like a link.

@@ -232,7 +232,7 @@ A POST request to `/api/share` will publish a new entry on the authenticated use
 
   * `title` - *required* - The text of the new entry.
   * `link` - The URL of the new entry. If it is not specified, the new entry will look like a quoted message. If specified, it will look like a link.
-  * `comment` - If specified, the given comment text is posted a comment under the new entry.
+  * `comment` - If specified, the given text is posted as a comment under the new entry.
   * `imageN_url`, `imageN_link` - The thumbnail images for the entry, specified from a 0-based index. `image0_url` specifies the URL of the image, which will be resized to the maximum size of a thumbnail and stored on !FriendFeed's servers. If `image0_link` is not given, the thumbnail will link to the main `link` URL. If it is specified, the thumbnail will link to the specified `image0_link`.
 
 Example usage with the !FriendFeed Python library:

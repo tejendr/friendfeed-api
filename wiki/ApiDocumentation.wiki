@@ -9,7 +9,7 @@ This is the technical documentation for the API. Other important links:
   * [http://friendfeed.com/api/ FriendFeed API Homepage]
   * [http://groups.google.com/group/friendfeed-api FriendFeed API Developer Forum]
   * [http://friendfeed.com/api/guidelines FriendFeed API Application Guidelines]
-
+  * [http://code.google.com/p/friendfeed-api/downloads/list FriendFeed API Python and PHP Libraries]
 
 = Core Concepts =
 

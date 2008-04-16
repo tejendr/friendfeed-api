@@ -80,6 +80,7 @@ The JSON form of the feeds has the following structure:
       * `profileUrl` - the user's profile URL on this service
     * `comments[]`
       * `date`
+      * `id` - the UUID of the comment
       * `user{}` - same structure as the `user{}` structure above
       * `body` - the textual body of the comment
     * `likes[]`

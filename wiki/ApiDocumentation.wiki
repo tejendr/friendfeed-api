@@ -70,11 +70,13 @@ The JSON form of the feeds has the following structure:
     * `hidden` - if true, this entry should be hidden based on the user's preferences
     * `user{}` - the user who shared this entry
       * `id` - the user's !FriendFeed UUID
+      * `name` - the user's full name
       * `nickname` - the user's !FriendFeed nickname, used in !FriendFeed URLs
       * `profileUrl` - the user's profile URL on !FriendFeed
     * `service{}` - the service from which the entry came
       * `id` - the service's !FriendFeed ID, e.g., "picasa"
       * `name` - the service's official name, e.g., "Picasa Web Albums"
+      * `iconUrl` - the URL of the favicon for this service
       * `profileUrl` - the user's profile URL on this service
     * `comments[]`
       * `date`
@@ -347,3 +349,33 @@ curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000" htt
 A POST request to `/feed/like/delete` will delete an existing "Like." The arguments are:
 
   * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
+
+
+
+
+= Get User Profile Information =
+
+=== /api/user/USERNAME/profile - Get services and subscriptions ===
+
+Returns list of all of the user's subscriptions (people) and services connected to their account:
+
+http://friendfeed.com/api/user/bret/profile
+
+The returned JSON has the form:
+
+  * `id` - the user's !FriendFeed UUID
+  * `name` - the user's full name
+  * `nickname` - the user's !FriendFeed nickname, used in !FriendFeed URLs
+  * `profileUrl` - the user's profile URL on !FriendFeed
+  * `services[]` - the services connected to the user's account
+    * `id` - the service's !FriendFeed ID, e.g., "picasa"
+    * `name` - the service's official name, e.g., "Picasa Web Albums"
+    * `url` - the official URL of the service, e.g., http://picasaweb.google.com/
+    * `iconUrl` - the URL of the favicon for this service
+    * `profileUrl`? - the user's profile URL on this service, if any
+    * `username`? - the user's username for this service, if any
+ * `subscriptions[]` - the user's this user is subscribed to
+    * `id`
+    * `name`
+    * `nickname`
+    * `profileUrl`

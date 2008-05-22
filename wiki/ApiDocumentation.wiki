@@ -102,6 +102,11 @@ The JSON form of the feeds has the following structure:
     * `via{}?` - present if this entry came from an API client
       * `name` - the name of the API client, e.g., "Alert Thingy"
       * `url` - the official URL of the API client, e.g., http://www.alertthingy.com/
+    * `room{}?` - if the entry is in a room, the room the entry is in
+      * `id` - the room's !FriendFeed UUID
+      * `name` - the room's display name
+      * `nickname` - the room's !FriendFeed nickname, used in !FriendFeed URLs
+      * `url` - the room's URL on !FriendFeed
 
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.
@@ -199,6 +204,15 @@ for entry in feed["entries"]:
 }}}
 
 
+=== /api/feed/room/NICKNAME - Fetch Entries from a Room === 
+
+Returns the most recent entries in the room with the given nickname:
+
+http://friendfeed.com/api/feed/room/friendfeed-news
+
+If the room is private, authentication is required.
+
+
 === /api/feed/home - Fetch the Friends Feed ===
 
 Returns the entries the authenticated user would see on their !FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries:
@@ -255,6 +269,7 @@ A POST request to `/api/share` will publish a new entry on the authenticated use
   * `link` - The URL of the new entry. If it is not specified, the new entry will look like a quoted message. If specified, it will look like a link.
   * `comment` - If specified, the given text is posted as a comment under the new entry.
   * `imageN_url`, `imageN_link` - The thumbnail images for the entry, specified from a 0-based index. `image0_url` specifies the URL of the image, which will be resized to the maximum size of a thumbnail and stored on !FriendFeed's servers. If `image0_link` is not given, the thumbnail will link to the main `link` URL. If it is specified, the thumbnail will link to the specified `image0_link`.
+  * `room` - If specified, the nickname of the room that the entry should be shared in.
 
 Example usage with the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
 

@@ -399,3 +399,13 @@ The returned JSON has the form:
     * `name`
     * `nickname`
     * `profileUrl`
+
+=== /api/profiles - Get services and subscriptions for multiple users ===
+
+Returns subscriptions and services for multiple users.
+
+http://friendfeed.com/api/profiles?nickname=bret,jim,paul,sanjeev
+
+The returned JSON has the form:
+
+  * `profiles` - the list of profiles for each user, each of which conforms to the format of the /api/user/NAME/profile call above.

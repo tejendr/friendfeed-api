@@ -394,11 +394,17 @@ The returned JSON has the form:
     * `iconUrl` - the URL of the favicon for this service
     * `profileUrl`? - the user's profile URL on this service, if any
     * `username`? - the user's username for this service, if any
- * `subscriptions[]` - the user's this user is subscribed to
+  * `subscriptions[]` - the users this user is subscribed to
     * `id`
     * `name`
     * `nickname`
     * `profileUrl`
+  * `rooms[]` - the rooms this user is a member of
+    * `id` - the room's !FriendFeed UUID
+    * `name` - the room's display name
+    * `nickname` - the room's !FriendFeed nickname, used in !FriendFeed URLs
+    * `url` - the room's URL on !FriendFeed
+
 
 === /api/profiles - Get services and subscriptions for multiple users ===
 

@@ -432,3 +432,29 @@ http://friendfeed.com/api/profiles?nickname=bret,jim,paul,sanjeev
 The returned JSON has the form:
 
   * `profiles` - the list of profiles for each user, each of which conforms to the format of the /api/user/NAME/profile call above.
+
+= Get Room Profile Information =
+
+=== /api/room/NICKNAME/profile - Get room url, description, member information ===
+
+Returns a list of all of the room's members and the url associated with the room (Authentication required for private rooms) :
+
+http://friendfeed.com/api/room/friendfeed-news/profile
+
+The returned JSON has the following format:
+
+  * `status` - private or public 
+  * `description` - a short summary of what the room is about
+  * `url` - the room's url on !FriendFeed
+  * `administrators[]`  
+    * `id` - the user's !FriendFeed UUID
+    * `name` - the user's full name
+    * `nickname` - the user's !FriendFeed nickname, used in !FriendFeed URLs
+    * `profileUrl` - the user's profile URL on !FriendFeed
+  * `members[]`
+    * `id` - the user's !FriendFeed UUID
+    * `name` - the user's full name
+    * `nickname` - the user's !FriendFeed nickname, used in !FriendFeed URLs
+    * `profileUrl` - the user's profile URL on !FriendFeed
+  * `id` - the room's !FriendFeed UUID
+  * `name` - the room's full name

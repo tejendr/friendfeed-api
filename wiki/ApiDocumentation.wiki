@@ -252,7 +252,21 @@ for entry in feed["entries"]:
     print entry["title"]
 }}}
 
+=== /api/services - List services ===
 
+Lists all services currently supported by FriendFeed:
+
+http://friendfeed.com/api/services
+
+The returned JSON has the format:
+
+  * `services[]`
+    * 'service{}'
+      * `url` - the official URL of the service, e.g., http://picasaweb.google.com/
+      * `iconUrl` - the URL of the favicon for this service
+      * `id` - the service's !FriendFeed ID, e.g., "picasa"
+      * `name` - the service's official name, e.g., "Picasa Web Albums"
+   
 = Publishing To !FriendFeed =
 
 All of the calls to publish information to !FriendFeed are HTTP requests. You can perform test calls from a web browser using the HTTP Basic Authentication built into your browser at http://friendfeed.com/static/html/apitest.html.
@@ -375,11 +389,12 @@ A POST request to `/feed/like/delete` will delete an existing "Like." The argume
 
 
 
+
 = Get User Profile Information =
 
 === /api/user/USERNAME/profile - Get services and subscriptions ===
 
-Returns list of all of the user's subscriptions (people) and services connected to their account:
+Returns list of all of the user's subscriptions (people) and services connected to their account (Authentication required for private users):
 
 http://friendfeed.com/api/user/bret/profile
 

@@ -329,7 +329,7 @@ By default, the thumbnails will link to the destination link for the entry. If y
 
 === /api/comment - Add or Edit Comments ===
 
-A POST request to `/feed/comment` will add a comment or edit an existing comment on a !FriendFeed entry. The arguments are:
+A POST request to `/api/comment` will add a comment or edit an existing comment on a !FriendFeed entry. The arguments are:
 
   * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
   * `body` - *required* - The textual body of the comment.
@@ -353,7 +353,7 @@ curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000&body
 
 === /api/comment/delete - Delete a Comment ===
 
-A POST request to `/feed/comment/delete` will delete an existing comment. The arguments are:
+A POST request to `/api/comment/delete` will delete an existing comment. The arguments are:
 
   * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
   * `comment` - *required* - The !FriendFeed UUID of the comment to delete.
@@ -361,7 +361,7 @@ A POST request to `/feed/comment/delete` will delete an existing comment. The ar
 
 === /api/like - "Like" an Entry ===
 
-A POST request to `/feed/like` will add a "Like" to a !FriendFeed entry for the authenticated user.
+A POST request to `/api/like` will add a "Like" to a !FriendFeed entry for the authenticated user.
 
   * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached
 
@@ -379,14 +379,27 @@ curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000" htt
 }}}
 
 
-
 === /api/like/delete - Delete a "Like" ===
 
-A POST request to `/feed/like/delete` will delete an existing "Like." The arguments are:
+A POST request to `/api/like/delete` will delete an existing "Like." The arguments are:
 
   * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
 
 
+=== /api/entry/delete - Delete an Entry ===
+
+A POST request to `/api/entry/delete` will delete an existing entry. The arguments are:
+
+  * `entry` - *required* - The !FriendFeed UUID of the entry to delete
+  * `undelete` - optional - if given, un-delete the given entry if it is already deleted
+
+
+=== /api/entry/hide - Hide an Entry ===
+
+A POST request to `/api/entry/hide` will hide an entry. The arguments are:
+
+  * `entry` - *required* - The !FriendFeed UUID of the entry to delete
+  * `unhide` - optional - if given, un-hide the given entry if it is already hidden
 
 
 

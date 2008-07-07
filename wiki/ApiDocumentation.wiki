@@ -252,20 +252,6 @@ for entry in feed["entries"]:
     print entry["title"]
 }}}
 
-=== /api/services - List services ===
-
-Lists all services currently supported by FriendFeed:
-
-http://friendfeed.com/api/services
-
-The returned JSON has the format:
-
-  * `services[]`
-    * 'service{}'
-      * `url` - the official URL of the service, e.g., http://picasaweb.google.com/
-      * `iconUrl` - the URL of the favicon for this service
-      * `id` - the service's !FriendFeed ID, e.g., "picasa"
-      * `name` - the service's official name, e.g., "Picasa Web Albums"
    
 = Publishing To !FriendFeed =
 
@@ -480,3 +466,18 @@ The returned JSON has the following format:
 Validates the user's remote key. If the HTTP Basic Authentication nickname and remote key are valid, we return a HTTP 200 status code. Otherwise, we return an HTTP 401 status code.
 
 http://friendfeed.com:8888/api/validate
+
+
+=== /api/services - List all FriendFeed services ===
+
+Lists all services currently supported by !FriendFeed:
+
+http://friendfeed.com/api/services
+
+The returned JSON has the format:
+
+  * `services[]`
+    * `url` - the official URL of the service, e.g., http://picasaweb.google.com/
+    * `iconUrl` - the URL of the favicon for this service
+    * `id` - the service's !FriendFeed ID, e.g., "picasa"
+    * `name` - the service's official name, e.g., "Picasa Web Albums"

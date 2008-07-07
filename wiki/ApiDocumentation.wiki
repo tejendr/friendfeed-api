@@ -468,7 +468,7 @@ Validates the user's remote key. If the HTTP Basic Authentication nickname and r
 http://friendfeed.com:8888/api/validate
 
 
-=== /api/services - List all FriendFeed services ===
+=== /api/services - List all !FriendFeed services ===
 
 Lists all services currently supported by !FriendFeed:
 

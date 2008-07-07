@@ -450,7 +450,7 @@ The returned JSON has the form:
 
 === /api/room/NICKNAME/profile - Get room url, description, member information ===
 
-Returns a list of all of the room's members and the url associated with the room (Authentication required for private rooms) :
+Returns a list of all of the room's members and the url associated with the room (Authentication required for private rooms):
 
 http://friendfeed.com/api/room/friendfeed-news/profile
 
@@ -471,3 +471,12 @@ The returned JSON has the following format:
     * `profileUrl` - the user's profile URL on !FriendFeed
   * `id` - the room's !FriendFeed UUID
   * `name` - the room's full name
+
+
+= Miscellaneous Methods =
+
+=== /api/validate - Validate a user's remote key ===
+
+Validates the user's remote key. If the HTTP Basic Authentication nickname and remote key are valid, we return a HTTP 200 status code. Otherwise, we return an HTTP 401 status code.
+
+http://friendfeed.com:8888/api/validate

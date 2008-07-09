@@ -1,4 +1,4 @@
-#labels Featured
+﻿#labels Featured
 = !FriendFeed API Documentation =
 
 = Introduction =
@@ -53,6 +53,13 @@ Using JSON and callbacks, you can place the !FriendFeed API request inside a `<s
 
 All authentication is ignored if the `callback=` argument is given, so JSON callbacks only work with public feeds.
 
+== Errors ==
+
+!FriendFeed returns appropriate HTTP status codes for API requests. In addition to the HTTP status code, !FriendFeed includes error information in the response body.  The error response body is formatted as XML if the requested format is format is `xml`, `rss` or `atom`.  Otherwise, the response body is formatted as JSON.
+
+The JSON form of an error response has the following format:
+
+  * `errorCode` - A program readable string describing the error.
 
 = Reading !FriendFeed Feeds =
 

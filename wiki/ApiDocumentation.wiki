@@ -465,7 +465,7 @@ The returned JSON has the following format:
 
 Validates the user's remote key. If the HTTP Basic Authentication nickname and remote key are valid, we return a HTTP 200 status code. Otherwise, we return an HTTP 401 status code.
 
-http://friendfeed.com:8888/api/validate
+http://friendfeed.com/api/validate
 
 
 === /api/services - List all !FriendFeed services ===

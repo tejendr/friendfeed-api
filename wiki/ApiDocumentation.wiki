@@ -61,6 +61,37 @@ The JSON form of an error response has the following format:
 
   * `errorCode` - A program readable string describing the error.
 
+The error codes are:
+
+  * `bad-id-format` - Bad format for UUID argument.
+  * `bad-url-format` - Bad format for URL argument.
+  * `entry-not-found` - Entry with the specified UUID was not found.
+  * `entry-required` - Entry UUID argument is required.
+  * `forbidden` - User does not have access to entry, room or other entity specified in the request.
+  * `image-format-not-supported` - Unsupported image format.
+  * `internal-server-error` - Internal error on !FriendFeed server.
+  * `limit-exceeded` - Request limit exceeded.
+  * `room-not-found` - Room with specified name not found.
+  * `room-required` - Room name argument is required.
+  * `title-required` - Entry title argument is required.
+  * `unauthorized` - The request requires authentication.
+  * `user-not-found` - User with specified nickname not found.
+  * `user-required` - User nickname argument is required.
+  * `error` - Other unspecified error.
+
+Example error responses using `curl`:
+
+{{{
+# Title is required field for entries.
+$ curl --basic --user nickname:remotekey --data comment=hello http://friendfeed.com/api/share
+{"errorCode":"title-required"}
+
+# Here's the same error with XML output
+$ curl --basic --user nickname:remotekey --data comment=hello http://friendfeed.com/api/share?format=xml
+<?xml version="1.0" encoding="utf-8"?>
+<error><errorCode>title-required</errorCode></error>
+}}}
+
 = Reading !FriendFeed Feeds =
 
 == Overview ==

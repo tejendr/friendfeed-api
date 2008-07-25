@@ -138,6 +138,10 @@ The JSON form of the feeds has the following structure:
         * `type` - the MIME type of the media file
         * `width`
         * `height`
+      * `enclosures[]` - any media enclosures (sometimes duplicated with content)
+        * `url`
+        * `type` - the MIME type of the media file
+        * `length`
     * `via{}?` - present if this entry came from an API client
       * `name` - the name of the API client, e.g., "Alert Thingy"
       * `url` - the official URL of the API client, e.g., http://www.alertthingy.com/
@@ -252,6 +256,24 @@ http://friendfeed.com/api/feed/room/friendfeed-news
 If the room is private, authentication is required.
 
 
+=== /api/feed/entry/ENTRYID - Fetch Entry by id === 
+
+Returns the entry with the given id:
+
+http://friendfeed.com/api/feed/entry/7ad57cd3-30e6-253a-c745-6345b1bd0e78
+
+If the entry is private, authentication is required.
+
+
+=== /api/feed/entry - Fetch Multiple Entries by ID === 
+
+Returns the requested entries, specified by id:
+
+http://friendfeed.com/api/feed/entry?entry_id=7ad57cd3-30e6-253a-c745-6345b1bd0e78,6f6a36d2-a6c6-fbe7-6bb2-f328c8794eea
+
+If any one of the entries is private, authentication is required.
+
+
 === /api/feed/home - Fetch the Friends Feed ===
 
 Returns the entries the authenticated user would see on their !FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries:
@@ -269,6 +291,14 @@ for entry in feed["entries"]:
     print entry["title"]
 }}}
 
+
+=== /api/feed/rooms - Fetch the Rooms Feed ===
+
+Returns the entries the authenticated user would see on their Rooms page - entries from all of the rooms they are members of:
+
+http://friendfeed.com/api/feed/rooms
+
+Authentication is always required.
 
 === /api/feed/search - Search ===
 

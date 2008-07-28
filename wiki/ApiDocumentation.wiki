@@ -467,7 +467,8 @@ Returns list of all of the user's subscriptions (people) and services connected 
 http://friendfeed.com/api/user/bret/profile
 
 The returned JSON has the form:
-
+  
+  * `status` - private or public
   * `id` - the user's !FriendFeed UUID
   * `name` - the user's full name
   * `nickname` - the user's !FriendFeed nickname, used in !FriendFeed URLs

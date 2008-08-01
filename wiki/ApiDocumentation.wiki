@@ -271,7 +271,7 @@ Returns the requested entries, specified by id:
 
 http://friendfeed.com/api/feed/entry?entry_id=7ad57cd3-30e6-253a-c745-6345b1bd0e78,6f6a36d2-a6c6-fbe7-6bb2-f328c8794eea
 
-If any one of the entries is private, authentication is required.
+Authentication is not required, but private entries will be omitted from unauthenticated results, as will entries the authenticated user does not have permission to view.
 
 
 === /api/feed/home - Fetch the Friends Feed ===

@@ -246,6 +246,10 @@ for entry in feed["entries"]:
     print entry["title"]
 }}}
 
+You can also specify by email:
+
+http://friendfeed.com/api/feed/user?emails=example1@example.com,example2@example.com
+
 
 === /api/feed/room/NICKNAME - Fetch Entries from a Room === 
 

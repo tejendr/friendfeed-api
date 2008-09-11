@@ -129,6 +129,7 @@ The JSON form of the feeds has the following structure:
     * `media[]` - the videos/images associated with the entry
       * `title?` - the title of the media file
       * `player?` - the player for this media file (e.g., the YouTube.com URL with the embedded video)
+      * `link` - the link where the media file came from (e.g., a Flickr photo page)
       * `thumbnails[]` - the thumbnails for this media file
         * `url`
         * `width`
@@ -141,7 +142,7 @@ The JSON form of the feeds has the following structure:
       * `enclosures[]` - any media enclosures (sometimes duplicated with content)
         * `url`
         * `type` - the MIME type of the media file
-        * `length`
+        * `length` 
     * `via{}?` - present if this entry came from an API client
       * `name` - the name of the API client, e.g., "Alert Thingy"
       * `url` - the official URL of the API client, e.g., http://www.alertthingy.com/
@@ -464,7 +465,7 @@ A POST request to `/api/entry/hide` will hide an entry. The arguments are:
 
 = Get User Profile Information =
 
-=== /api/user/USERNAME/profile - Get services and subscriptions ===
+=== /api/user/NICKNAME/profile - Get services and subscriptions ===
 
 Returns list of all of the user's subscriptions (people) and services connected to their account (Authentication required for private users):
 
@@ -505,6 +506,12 @@ http://friendfeed.com/api/profiles?nickname=bret,jim,paul,sanjeev
 The returned JSON has the form:
 
   * `profiles` - the list of profiles for each user, each of which conforms to the format of the /api/user/NAME/profile call above.
+
+=== /NICKNAME/picture - Get a user's profile picture ===
+
+http://friendfeed.com/bret/picture?size=medium
+
+Size can be "small", "medium", or "large".
 
 = Get Room Profile Information =
 

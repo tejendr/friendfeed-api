@@ -230,6 +230,14 @@ http://friendfeed.com/api/feed/user/bret/discussion
 If the user has a private feed, authentication is required.
 
 
+=== /api/feed/user/NICKNAME/friends - Fetch Entries from a User's Friends Feed === 
+
+Returns entries from a user's friends:
+
+http://friendfeed.com/api/feed/user/bret/friends
+
+If the user has a private feed, authentication is required.  Any friends of the user who have a private feed will be omitted unless authentication is used and the authenticated user has the privileged to see those feeds.
+
 === /api/feed/user - Fetch Entries from Multiple Users === 
 
 Returns the most recent entries from a list of users, specified by nickname:
@@ -325,6 +333,13 @@ for entry in feed["entries"]:
     print entry["title"]
 }}}
 
+=== /api/feed/list/NICKNAME - Fetch Entries from a List ===
+
+Returns entries from the authenticated users list with the given nickname:
+
+http://friendfeed.com/api/feed/list/personal
+
+Authentication is always required.
    
 = Publishing To !FriendFeed =
 
@@ -495,6 +510,11 @@ The returned JSON has the form:
     * `name` - the room's display name
     * `nickname` - the room's !FriendFeed nickname, used in !FriendFeed URLs
     * `url` - the room's URL on !FriendFeed
+  * `lists[]` - the lists this user is a member of (only visible if authenticated as this user)
+    * `id` - the list's !FriendFeed UUID
+    * `name` - the list's display name
+    * `nickname` - the list's !FriendFeed nickname, used in !FriendFeed URLs
+    * `url` - the list's URL on !FriendFeed
 
 
 === /api/profiles - Get services and subscriptions for multiple users ===
@@ -539,6 +559,30 @@ The returned JSON has the following format:
   * `id` - the room's !FriendFeed UUID
   * `name` - the room's full name
 
+= Get List Profile Information =
+
+=== /api/list/NICKNAME/profile - Get list url, description, member information ===
+
+Returns a list of all of the list's members and the url associated with the list (Authentication required):
+
+http://friendfeed.com/api/list/personal/profile
+
+The returned JSON has the following format:
+
+  * `id` - the list's !FriendFeed UUID
+  * `name` - the list's display name
+  * `nickname` - the list's !FriendFeed nickname, used in !FriendFeed URLs
+  * `url` - the list's URL on !FriendFeed
+  * `users[]`  
+    * `id` - the user's !FriendFeed UUID
+    * `name` - the user's full name
+    * `nickname` - the user's !FriendFeed nickname, used in !FriendFeed URLs
+    * `profileUrl` - the user's profile URL on !FriendFeed
+  * `rooms[]`
+    * `id` - the room's !FriendFeed UUID
+    * `name` - the room's full name
+    * `nickname` - the room's !FriendFeed nickname, used in !FriendFeed URLs
+    * `profileUrl` - the room's profile URL on !FriendFeed
 
 = Miscellaneous Methods =
 

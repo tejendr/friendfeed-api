@@ -584,6 +584,52 @@ The returned JSON has the following format:
     * `nickname` - the room's !FriendFeed nickname, used in !FriendFeed URLs
     * `profileUrl` - the room's profile URL on !FriendFeed
 
+= Subscription Management =
+
+The subscription management methods below require an API key.  An API key is a private key that developers can obtain by sending an email to api@friendfeed.com.  The API key is required so we can track how these methods are used and curtail abuse. http://friendfeed.com/settings/modifications will contain a list of subscription modifications and will show which API client made the change.
+
+Please read the API guidelines before using these methods: http://friendfeed.com/api/guidelines
+
+=== /api/user/NICKNAME/subscribe - Subscribe to a user ===
+
+Subscribe to a user:
+
+http://friendfeed.com/api/user/bret/subscribe
+
+Unsubscribe from a user:
+
+http://friendfeed.com/api/user/bret/subscribe?unsubscribe=1
+
+Example usage with `curl`:
+
+{{{
+curl -u "username:nickname" -d "apikey=APIKEY" http://friendfeed.com/api/user/bret/subscribe
+}}}
+
+The returned JSON has the format:
+
+  * `status` -  `subscribed`, `unsusbscribed`, or `requested`
+
+=== /api/room/NICKNAME/subscribe - Subscribe to a room ===
+
+Subscribe to a room:
+
+http://friendfeed.com/api/room/friendfeed-news/subscribe
+
+Unsubscribe from a room:
+
+http://friendfeed.com/api/room/friendfeed-news/subscribe?unsubscribe=1
+
+Example usage with `curl`:
+
+{{{
+curl -u "username:nickname" -d "apikey=APIKEY" http://friendfeed.com/api/room/friendfeed-news/subscribe
+}}}
+
+The returned JSON has the format:
+
+  * `status` -  `subscribed`, `unsusbscribed`, or `requested`
+
 = Miscellaneous Methods =
 
 === /api/validate - Validate a user's remote key ===

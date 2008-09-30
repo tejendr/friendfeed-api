@@ -341,6 +341,54 @@ http://friendfeed.com/api/feed/list/personal
 
 Authentication is always required.
    
+=== /api/feed/url - Fetch Entries about a URL ===
+
+Returns the most recent entries linking to a given URL.
+
+http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/08/simple-update-protocol-fetch-updates.html
+
+If authentication is used, private entries may be returned, otherwise only public entries will be.
+
+When authenticated, the results may be limited to only entries from the user's friends and subscribed rooms by passing subscribed=1:
+
+{{{
+curl -u "nickname:remotekey" 'http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/08/simple-update-protocol-fetch-updates.html&subscribed=1'
+}}}
+
+The results may also be limited to a given set of users or rooms by specifying their nicknames:
+
+http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/08/simple-update-protocol-fetch-updates.html&nickname=bret,friendfeed-news
+
+Note that there is a best-effort attempt to resolve URL shorteners, so some entries may contain links that redirect to the specified one.
+
+The service filter is not currently supported on this feed.
+
+=== /api/feed/domain - Fetch Entries from a domain ===
+
+Returns the most recent entries linking to URLs in the given domain(s).
+
+http://friendfeed.com/api/feed/domain?domain=blog.friendfeed.com,code.google.com
+
+By default, sub-domains will not be matched (i.e. friendfeed.com will not include blog.friendfeed.com entries). Subdomain matches may be requested by passing inexact=1 (the results of inexact queries will be unsorted for performance reasons):
+
+http://friendfeed.com/api/feed/domain?domain=friendfeed.com&inexact=1
+
+If authentication is used, private entries may be returned, otherwise only public entries will be.
+
+When authenticated, the results may be limited to only entries from the user's friends and subscribed rooms by passing subscribed=1:
+
+{{{
+curl -u "nickname:remotekey" 'http://friendfeed.com/api/feed/domain?domain=blog.friendfeed.com,code.google.com&subscribed=1'
+}}}
+
+The results may also be limited to a given set of users or rooms by specifying their nicknames:
+
+http://friendfeed.com/api/feed/domain?domain=blog.friendfeed.com,code.google.com&nickname=bret,friendfeed-news
+
+Note that there is a best-effort attempt to resolve URL shorteners, so some entries may contain links that redirect to ones in the specified domain(s).
+
+The service filter is not currently supported on this feed.
+
 = Publishing To !FriendFeed =
 
 All of the calls to publish information to !FriendFeed are HTTP requests. You can perform test calls from a web browser using the HTTP Basic Authentication built into your browser at http://friendfeed.com/static/html/apitest.html.

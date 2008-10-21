@@ -686,7 +686,7 @@ The real-time methods return entry, comment and like updates since a time identi
 The real-time methods support the following arguments:
 
    * `token` - Return updates since the time identified by this token. Call /api/updates to get a starting value for the token.
-   * `timeout` - If updates are available immediately, then wait this number of seconds for updates before finishing the request.  If the timeout is zero, then the request finishes without waiting.  The server might finish the request before the specified timeout.
+   * `timeout` - If updates are not immediately available, then wait up to this number of seconds for updates before finishing the request.  If the timeout is zero, then the request finishes without waiting.  The server might finish the request before the specified timeout.
    * `format` - The output format, either "json" or "xml".
 
 The structure of the real-time output is:

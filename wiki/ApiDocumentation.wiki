@@ -679,7 +679,7 @@ The returned JSON has the format:
   * `status` -  `subscribed`, `unsusbscribed`, or `requested`
 
 
-= Real-time (Beta) =
+= Real-time =
 
 The real-time methods return entry, comment and like updates since a time identified by a token.  
 

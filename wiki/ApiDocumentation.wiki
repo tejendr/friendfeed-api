@@ -564,6 +564,18 @@ The returned JSON has the form:
     * `nickname` - the list's !FriendFeed nickname, used in !FriendFeed URLs
     * `url` - the list's URL on !FriendFeed
 
+A POST request to /api/user/NICKNAME/profile will change profile fields.  The arguments are:
+
+  * `name` -  optional - The user's full name.
+  * `picture` - optional - The user's picture.  The POST data must be encoded as `multipart/form-data` if the picture argument is used.
+
+The response for the POST request is the same as the GET request.
+
+Example usage with `curl`:
+
+{{{
+curl -u "nickname:remotekey" -d "name=MyNewName" http://friendfeed.com/api/user/nickname/profile
+}}}
 
 === /api/profiles - Get services and subscriptions for multiple users ===
 

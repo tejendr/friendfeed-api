@@ -775,3 +775,11 @@ The returned JSON has the format:
     * `iconUrl` - the URL of the favicon for this service
     * `id` - the service's !FriendFeed ID, e.g., "picasa"
     * `name` - the service's official name, e.g., "Picasa Web Albums"
+
+=== Obtaining a subset of data using the "include" argument ===
+
+If you are only interested in a subset of the data returned from any of our API methods you can provide the "include" argument a list of comma separated values to specify which properties you are interested in.  For example to only include Bret's id and services:
+
+http://friendfeed.com/api/user/bret/profile?include=id,services
+
+This argument is optional.  If it is not provided then all properties will be returned.

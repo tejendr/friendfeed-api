@@ -693,11 +693,11 @@ The returned JSON has the format:
 
 = Real-time =
 
-The real-time methods return entry, comment and like updates since a time identified by a token.  
+The real-time methods return entry, comment and like updates since a time identified by a token.  The methods return recent updates only.  To read the complete update stream, clients should use long polling or poll the API using the interval specified in the response.
 
 The real-time methods support the following arguments:
 
-   * `token` - Return updates since the time identified by this token. Call /api/updates to get a starting value for the token.
+   * `token` - Return updates since the time identified by this token. Call /api/updates to get a starting value for the token. 
    * `timeout` - If updates are not immediately available, then wait up to this number of seconds for updates before finishing the request.  If the timeout is zero, then the request finishes without waiting.  The server might finish the request before the specified timeout.
    * `format` - The output format, either "json" or "xml".
 
@@ -705,7 +705,7 @@ The structure of the real-time output is:
 
    * `update`
       * `token` - Use this token to specify the starting time in the next request to get updates.  The token is an opaque string.
-      * `incomplete` - if true, then the server could not return all requests since the time specified by the token.  
+      * `incomplete` - If true, then the results might not be complete because the token was older than the time window maintained by the server.  
       * `poll_interval` - If using timeout=0 or if the connection to the server fails, then wait this number of seconds before calling the method again.
    * `entries[]` - Same as feed entries except for changes noted here:
       * `is_new` - If true, then this entry is new.

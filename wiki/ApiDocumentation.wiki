@@ -118,6 +118,7 @@ The JSON form of the feeds has the following structure:
       * `name` - the service's official name, e.g., "Picasa Web Albums"
       * `iconUrl` - the URL of the favicon for this service
       * `profileUrl` - the user's profile URL on this service
+      * `entryType` - present if the service has multiple types of entries.  Example values are "favorite" and "publish" for YouTube videos.
     * `comments[]`
       * `date`
       * `id` - the UUID of the comment
@@ -154,6 +155,9 @@ The JSON form of the feeds has the following structure:
       * `name` - the room's display name
       * `nickname` - the room's !FriendFeed nickname, used in !FriendFeed URLs
       * `url` - the room's URL on !FriendFeed
+    * `geo{}?` - present if the entry contains geographic information
+      * `lat` - the latitude
+      * `long` - the longitude
 
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.

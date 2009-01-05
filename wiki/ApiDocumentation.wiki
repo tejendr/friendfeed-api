@@ -118,7 +118,7 @@ The JSON form of the feeds has the following structure:
       * `name` - the service's official name, e.g., "Picasa Web Albums"
       * `iconUrl` - the URL of the favicon for this service
       * `profileUrl` - the user's profile URL on this service
-      * `entryType` - present if the service has multiple types of entries.  Example values are "favorite" and "publish" for YouTube videos.
+      * `entryType?` - present if the service has multiple types of entries.  Example values are "favorite" and "publish" for YouTube videos.
     * `comments[]`
       * `date`
       * `id` - the UUID of the comment

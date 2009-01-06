@@ -799,7 +799,7 @@ This argument is optional.  If it is not provided then all properties will be re
 
 === Pre-populated service import forms ===
 
-You can send your users to a page on FriendFeed with a pre-populated form to make it easy for them to add your service to their feed.  For example:
+You can send your users to a page on !FriendFeed with a pre-populated form to make it easy for them to add your service to their feed.  For example:
 
 http://friendfeed.com/settings/services/digg?username=foo
 

@@ -796,3 +796,20 @@ If you are only interested in a subset of the data returned from any of our API 
 http://friendfeed.com/api/user/bret/profile?include=id,services
 
 This argument is optional.  If it is not provided then all properties will be returned.
+
+=== Pre-populated service import forms ===
+
+You can send your users to a page on FriendFeed with a pre-populated form to make it easy for them to add your service to their feed.  For example:
+
+http://friendfeed.com/settings/services/digg?username=foo
+
+For services that use a URL rather than a username:
+
+http://friendfeed.com/settings/services/blog?url=http://example.com/
+
+Optional arguments:
+  * `next` - The URL a user will be redirected to after importing a service. http://friendfeed.com/settings/services/blog?url=http://example.com/&next=http://example.com/afteradd will add the feed from "http://example.com/" and redirect the user to "http://example.com/afteradd" afterwords.
+  * `nextcancel` - The URL a user will be redirected to after clicking the cancel link.
+  * `author` - For the "blog" service only. For feeds with multiple authors only import entries from this author. http://friendfeed.com/settings/services/blog?url=http://example.com/&author=foobar
+  * `importcomment` - For the "feed" service only. Import the entry description as a comment. http://friendfeed.com/settings/services/feed?url=http://example.com/&importcomment=1
+  * `isstatus` - For the "feed" service only. Display entries as "messages" (no link). http://friendfeed.com/settings/services/feed?url=http://example.com/&isstatus=1 

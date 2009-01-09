@@ -66,6 +66,24 @@ If the user has a private feed, authentication is required.
 
 Move python library documentation to pydoc comments.
 
+= More compact table organization w/ table header to note examples =
+
+<table>
+<tr><td>*Method* (and link to example)</td><td>*Description*</td></tr>
+<tr>
+  <td valign="top">[http://friendfeed.com/api/feed/public /api/feed/public]</td>
+  <td>Returns the most recent public entries on !FriendFeed.</td>
+</tr>
+<tr>
+  <td valign="top">[http://friendfeed.com/api/feed/user/bret /api/feed/user/NICKNAME]</td>
+  <td>Returns the most recent entries from the user with the given nickname.  If the user has a private feed, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top">[http://friendfeed.com/api/feed/user/bret/comments /api/feed/user/NICKNAME/comments]</td>
+  <td>Returns the most recent entries the user has commented on, ordered by the date of that user's comments.  If the user has a private feed, authentication is required.</td>
+</tr>
+</table>
+
 = Table with explicit examples =
 
 <table>

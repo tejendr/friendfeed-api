@@ -1,6 +1,71 @@
 ﻿#labels Featured
 = !FriendFeed API Documentation =
 
+= Table of Contents = 
+
+* <a href="#Introduction">Introduction</a>
+* <a href="#Core_Concepts">Core Concepts</a>
+  * <a href="#Requests_and_Data_Formats">Requests and Data Formats</a>
+  * <a href="#Authentication">Authentication</a>
+  * <a href="#JSON_Callbacks">JSON Callbacks</a>
+  * <a href="#Errors">Errors</a>
+* <a href="#Reading_FriendFeed_Feeds">Reading FriendFeed Feeds</a>
+  * <a href="#Overview">Overview</a>
+    * <a href="#Feed_Formats">Feed Formats</a>
+    * <a href="#Filtering_&amp;_Paging">Filtering &amp; Paging</a>
+    * <a href="#Methods">Methods</a>
+      * <a href="#/api/feed/public_-_Fetch_all_Public_Entries">/api/feed/public - Fetch all Public Entries</a>
+      * <a href="#/api/feed/user/NICKNAME_-_Fetch_Entries_from_a_User">/api/feed/user/NICKNAME - Fetch Entries from a User</a>
+      * <a href="#/api/feed/user/NICKNAME/comments_-_Fetch_Entries_a_User_Has_Comm">/api/feed/user/NICKNAME/comments - Fetch Entries a User Has Commented On</a>
+      * <a href='#/api/feed/user/NICKNAME/likes_-_Fetch_Entries_a_User_Has_"L'>/api/feed/user/NICKNAME/likes - Fetch Entries a User Has "Liked"</a>
+      * <a href="#/api/feed/user/NICKNAME/discussion_-_Fetch_Entries_a_User_Has_Co">/api/feed/user/NICKNAME/discussion - Fetch Entries a User Has Commented On or "Liked"</a>
+      * <a href="#/api/feed/user/NICKNAME/friends_-_Fetch_Entries_from_a_User'">/api/feed/user/NICKNAME/friends - Fetch Entries from a User's Friends Feed</a>
+      * <a href="#/api/feed/user_-_Fetch_Entries_from_Multiple_Users">/api/feed/user - Fetch Entries from Multiple Users</a>
+      * <a href="#/api/feed/room/NICKNAME_-_Fetch_Entries_from_a_Room">/api/feed/room/NICKNAME - Fetch Entries from a Room</a>
+      * <a href="#/api/feed/entry/ENTRYID_-_Fetch_Entry_by_id">/api/feed/entry/ENTRYID - Fetch Entry by id</a>
+      * <a href="#/api/feed/entry_-_Fetch_Multiple_Entries_by_ID">/api/feed/entry - Fetch Multiple Entries by ID</a>
+      * <a href="#/api/feed/home_-_Fetch_the_Friends_Feed">/api/feed/home - Fetch the Friends Feed</a>
+      * <a href="#/api/feed/rooms_-_Fetch_the_Rooms_Feed">/api/feed/rooms - Fetch the Rooms Feed</a>
+      * <a href="#/api/feed/search_-_Search">/api/feed/search - Search</a>
+      * <a href="#/api/feed/list/NICKNAME_-_Fetch_Entries_from_a_List">/api/feed/list/NICKNAME - Fetch Entries from a List</a>
+      * <a href="#/api/feed/url_-_Fetch_Entries_about_a_URL">/api/feed/url - Fetch Entries about a URL</a>
+      * <a href="#/api/feed/domain_-_Fetch_Entries_from_a_domain">/api/feed/domain - Fetch Entries from a domain</a>
+* <a href="#Publishing_To_FriendFeed">Publishing To FriendFeed</a>
+  * <a href="#Create_New_Entries">Create New Entries</a>
+    * <a href="#/api/share_-_Publish_Links_or_Messages">/api/share - Publish Links or Messages</a>
+    * <a href="#Upload_Images_with_Entries">Upload Images with Entries</a>
+  * <a href="#Comment_and_Like_Entries">Comment and Like Entries</a>
+    * <a href="#/api/comment_-_Add_or_Edit_Comments">/api/comment - Add or Edit Comments</a>
+    * <a href="#/api/comment/delete_-_Delete_a_Comment">/api/comment/delete - Delete a Comment</a>
+    * <a href='#/api/like_-_"Like"_an_Entry'>/api/like - "Like" an Entry</a>
+    * <a href='#/api/like/delete_-_Delete_a_"Like"'>/api/like/delete - Delete a "Like"</a>
+    * <a href="#/api/entry/delete_-_Delete_an_Entry">/api/entry/delete - Delete an Entry</a>
+    * <a href="#/api/entry/hide_-_Hide_an_Entry">/api/entry/hide - Hide an Entry</a>
+* <a href="#Get_User_Profile_Information">Get User Profile Information</a>
+  * <a href="#/api/user/NICKNAME/profile_-_Get_services_and_subscriptions">/api/user/NICKNAME/profile - Get services and subscriptions</a>
+  * <a href="#/api/profiles_-_Get_services_and_subscriptions_for_multiple_user">/api/profiles - Get services and subscriptions for multiple users</a>
+  * <a href="#/NICKNAME/picture_-_Get_a_user's_profile_picture">/NICKNAME/picture - Get a user's profile picture</a>
+* <a href="#Get_Room_Profile_Information">Get Room Profile Information</a>
+  * <a href="#/api/room/NICKNAME/profile_-_Get_room_url,_description,_member_i">/api/room/NICKNAME/profile - Get room url, description, member information</a>
+  * <a href="#/rooms/NICKNAME/picture_-_Get_a_rooms's_profile_picture">/rooms/NICKNAME/picture - Get a rooms's profile picture</a>
+* <a href="#Get_List_Profile_Information">Get List Profile Information</a>
+  * <a href="#/api/list/NICKNAME/profile_-_Get_list_url,_description,_member_i">/api/list/NICKNAME/profile - Get list url, description, member information</a>
+* <a href="#Subscription_Management">Subscription Management</a>
+  * <a href="#/api/user/NICKNAME/subscribe_-_Subscribe_to_a_user">/api/user/NICKNAME/subscribe - Subscribe to a user</a>
+  * <a href="#/api/room/NICKNAME/subscribe_-_Subscribe_to_a_room">/api/room/NICKNAME/subscribe - Subscribe to a room</a>
+* <a href="#Real-time">Real-time</a>
+  * <a href="#/api/updates">/api/updates</a>
+  * <a href="#/api/updates/home_-_Get_updates_to_the_home_feed">/api/updates/home - Get updates to the home feed</a>
+  * <a href="#/api/updates/user/NICKNAME/friends_-_Get_updates_to_a_user'">/api/updates/user/NICKNAME/friends - Get updates to a user's friends feed</a>
+  * <a href="#/api/updates/list/NICKNAME_-_Get_updates_to_a_list">/api/updates/list/NICKNAME - Get updates to a list</a>
+  * <a href="#/api/updates/room/NICKNAME_-_Get_updates_to_a_room">/api/updates/room/NICKNAME - Get updates to a room</a>
+* <a href="#Miscellaneous_Methods">Miscellaneous Methods</a>
+  * <a href="#/api/validate_-_Validate_a_user's_remote_key">/api/validate - Validate a user's remote key</a>,
+  * <a href="#/api/services_-_List_all_FriendFeed_services">/api/services - List all FriendFeed services</a>,
+  * <a href='#Obtaining_a_subset_of_data_using_the_"include"_argumen'>Obtaining a subset of data using the "include" argument</a>,
+  * <a href="#Pre-populated_service_import_forms">Pre-populated service import forms</a>
+
+
 = Introduction =
 
 The [http://friendfeed.com/api/ FriendFeed API] enables developers interact with the [http://friendfeed.com/ FriendFeed] web site programmatically via simple HTTP requests.

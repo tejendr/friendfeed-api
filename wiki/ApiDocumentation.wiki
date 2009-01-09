@@ -3,7 +3,7 @@
 
 = Table of Contents = 
 
-* <a href="#Introduction">Introduction</a>
+* [#Introduction Introduction]
 * <a href="#Core_Concepts">Core Concepts</a>
   * <a href="#Requests_and_Data_Formats">Requests and Data Formats</a>
   * <a href="#Authentication">Authentication</a>

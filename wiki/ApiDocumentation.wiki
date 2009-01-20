@@ -795,7 +795,7 @@ The real-time methods are served from the host chan.friendfeed.com (all other me
 <table>
 <tr><td>*Method* (and link to example)</td><td>*Description*</td></tr>
 <tr>
-  <td valign="top">[http://friendfeed.com/api/updates /api/updates]</td>
+  <td valign="top">[http://chan.friendfeed.com/api/updates /api/updates]</td>
   <td>Call this method to get a starting value for the update token. This method always returns an empty entries collection.</td>
 </tr>
 <tr>

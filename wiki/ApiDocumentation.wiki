@@ -135,6 +135,7 @@ The error codes are:
   * `image-format-not-supported` - Unsupported image format.
   * `internal-server-error` - Internal error on !FriendFeed server.
   * `limit-exceeded` - Request limit exceeded.
+  * `not-found` - URL not found. 
   * `room-not-found` - Room with specified name not found.
   * `room-required` - Room name argument is required.
   * `title-required` - Entry title argument is required.

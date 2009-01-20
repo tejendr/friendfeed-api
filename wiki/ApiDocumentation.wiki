@@ -554,6 +554,7 @@ A POST request to `/api/comment/delete` will delete an existing comment. The arg
 
   * `entry` - *required* - The !FriendFeed UUID of the entry to which this comment is attached.
   * `comment` - *required* - The !FriendFeed UUID of the comment to delete.
+  * `undelete` - optional - if given, un-delete the given comment if it is already deleted.
 
 
 === /api/like - "Like" an Entry ===

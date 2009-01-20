@@ -54,11 +54,6 @@
     * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/user/NICKNAME/subscribe_-_Subscribe_to_a_user /api/user/NICKNAME/subscribe - Subscribe to a user]
     * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/room/NICKNAME/subscribe_-_Subscribe_to_a_room /api/room/NICKNAME/subscribe - Subscribe to a room]
   * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#Real-time Real-time]
-    * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/updates /api/updates]
-    * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/updates/home_-_Get_updates_to_the_home_feed /api/updates/home - Get updates to the home feed]
-    * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/updates/user/NICKNAME/friends_-_Get_updates_to_a_user' /api/updates/user/NICKNAME/friends - Get updates to a user's friends feed]
-    * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/updates/list/NICKNAME_-_Get_updates_to_a_list /api/updates/list/NICKNAME - Get updates to a list]
-    * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/updates/room/NICKNAME_-_Get_updates_to_a_room /api/updates/room/NICKNAME - Get updates to a room]
   * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#Miscellaneous_Methods Miscellaneous Methods]
     * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/validate_-_Validate_a_user's_remote_key /api/validate - Validate a user's remote key],
     * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/services_-_List_all_FriendFeed_services /api/services - List all FriendFeed services],
@@ -797,43 +792,29 @@ The structure of the real-time output is:
 
 The real-time methods are served from the host chan.friendfeed.com (all other methods are served from friendfeed.com).
 
-=== /api/updates ===
-
-Call this method to get a starting value for the update token. This method always returns an empty entries collection.
-
-http://chan.friendfeed.com/api/updates
-
-=== /api/updates/home - Get updates to the home feed ===
-
-Returns updates to the users home feed:
-
-http://chan.friendfeed.com/api/updates/home
-
- Authentication is always required.
-
-=== /api/updates/user/NICKNAME/friends - Get updates to a user's friends feed ===
-
-Returns updates to a user's friends.
-
-http://chan.friendfeed.com/api/updates/user/bret/friends
-
-If the user has a private feed, authentication is required. Any friends of the user who have a private feed will be omitted unless authentication is used and the authenticated user has the privileges to see those feeds.
-
-=== /api/updates/list/NICKNAME - Get updates to a list  ===
-
-Returns updates to the authenticated user's list with the given nickname:
-
-http://chan.friendfeed.com/api/updates/list/personal
-
-Authentication is always required.
-
-=== /api/updates/room/NICKNAME - Get updates to a room ===
-
-Returns updates to the room with the given nickname.
-
-http://chan.friendfeed.com/api/updates/room/friendfeed-news
-
-If the room is private, then authentication is required.
+<table>
+<tr><td>*Method* (and link to example)</td><td>*Description*</td></tr>
+<tr>
+  <td valign="top">[http://friendfeed.com/api/updates /api/updates]</td>
+  <td>Call this method to get a starting value for the update token. This method always returns an empty entries collection.</td>
+</tr>
+<tr>
+  <td valign="top">[http://chan.friendfeed.com/api/updates/home /api/updates/home]</td>
+  <td>Get updates to the users home feed. Authentication is always required.</td>
+</tr>
+<tr>
+  <td valign="top">[http://chan.friendfeed.com/api/updates/user/bret/friends /api/updates/user/NICKNAME/friends]</td>
+  <td> Get updates to a user's friends feed. If the user has a private feed, authentication is required. Any friends of the user who have a private feed will be omitted unless authentication is used and the authenticated user has the privileges to see those feeds.</td>
+ </tr>
+ <tr>
+  <td valign="top">[http://chan.friendfeed.com/api/updates/list/personal /api/updates/list/NICKNAME]</td>
+  <td>Returns updates to the authenticated user's list with the given nickname.  Authentication is always required.</td>
+ </tr>
+ <tr>
+  <td valign="top">[http://chan.friendfeed.com/api/updates/room/friendfeed-news /api/updates/room/NICKNAME]</td>
+  <td>Returns updates to the room with the given nickname. If the room is private, then authentication is required.</td>
+ </tr>
+</table>
 
 = Miscellaneous Methods =
 

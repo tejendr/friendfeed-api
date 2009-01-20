@@ -143,11 +143,13 @@ Example error responses using `curl`:
 
 {{{
 # Title is required field for entries.
-$ curl --basic --user nickname:remotekey --data comment=hello http://friendfeed.com/api/share
+$ curl --basic --user nickname:remotekey --data comment=hello \
+  http://friendfeed.com/api/share
 {"errorCode":"title-required"}
 
 # Here's the same error with XML output
-$ curl --basic --user nickname:remotekey --data comment=hello http://friendfeed.com/api/share?format=xml
+$ curl --basic --user nickname:remotekey --data comment=hello \
+  http://friendfeed.com/api/share?format=xml
 <?xml version="1.0" encoding="utf-8"?>
 <error><errorCode>title-required</errorCode></error>
 }}}
@@ -413,19 +415,20 @@ Authentication is always required.
 
 Returns the most recent entries linking to a given URL.
 
-http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/08/simple-update-protocol-fetch-updates.html
+http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/12/simple-update-protocol-update.html
 
 If authentication is used, private entries may be returned, otherwise only public entries will be.
 
 When authenticated, the results may be limited to only entries from the user's friends and subscribed rooms by passing subscribed=1:
 
 {{{
-curl -u "nickname:remotekey" 'http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/08/simple-update-protocol-fetch-updates.html&subscribed=1'
+curl -u "nickname:remotekey" \
+'http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/12/simple-update-protocol-update.html&subscribed=1'
 }}}
 
 The results may also be limited to a given set of users or rooms by specifying their nicknames:
 
-http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/08/simple-update-protocol-fetch-updates.html&nickname=bret,friendfeed-news
+http://friendfeed.com/api/feed/url?url=http://blog.friendfeed.com/2008/12/simple-update-protocol-update.html&nickname=bret,friendfeed-news
 
 Note that there is a best-effort attempt to resolve URL shorteners, so some entries may contain links that redirect to the specified one.
 
@@ -446,7 +449,8 @@ If authentication is used, private entries may be returned, otherwise only publi
 When authenticated, the results may be limited to only entries from the user's friends and subscribed rooms by passing subscribed=1:
 
 {{{
-curl -u "nickname:remotekey" 'http://friendfeed.com/api/feed/domain?domain=blog.friendfeed.com,code.google.com&subscribed=1'
+curl -u "nickname:remotekey" \
+  'http://friendfeed.com/api/feed/domain?domain=blog.friendfeed.com,code.google.com&subscribed=1'
 }}}
 
 The results may also be limited to a given set of users or rooms by specifying their nicknames:
@@ -504,7 +508,9 @@ service.publish_link(
 Example usage with `curl`:
 
 {{{
-curl -u "nickname:remotekey" -d "title=Testing+the+FriendFeed+API&link=http://friendfeed.com/" http://friendfeed.com/api/share
+curl -u "nickname:remotekey" \
+  -d "title=Testing+the+FriendFeed+API&link=http://friendfeed.com/" \
+  http://friendfeed.com/api/share
 }}}
 
 
@@ -540,7 +546,9 @@ service.add_comment(
 Example usage with `curl`:
 
 {{{
-curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000&body=Testing+the+FriendFeed+API" http://friendfeed.com/api/comment
+curl -u "nickname:remotekey" \
+  -d "entry=550e8400-e29b-41d4-a716-446655440000&body=Testing+the+FriendFeed+API" \
+  http://friendfeed.com/api/comment
 }}}
 
 === /api/comment/delete - Delete a Comment ===
@@ -568,7 +576,9 @@ service.add_like("550e8400-e29b-41d4-a716-446655440000")
 Example usage with `curl`:
 
 {{{
-curl -u "nickname:remotekey" -d "entry=550e8400-e29b-41d4-a716-446655440000" http://friendfeed.com/api/like
+curl -u "nickname:remotekey" \
+  -d "entry=550e8400-e29b-41d4-a716-446655440000" \
+  http://friendfeed.com/api/like
 }}}
 
 
@@ -644,7 +654,9 @@ The response for the POST request is the same as the GET request.
 Example usage with `curl`:
 
 {{{
-curl -u "nickname:remotekey" -d "name=MyNewName" http://friendfeed.com/api/user/nickname/profile
+curl -u "nickname:remotekey" \
+  -d "name=MyNewName" \
+  http://friendfeed.com/api/user/nickname/profile
 }}}
 
 === /api/profiles - Get services and subscriptions for multiple users ===
@@ -759,7 +771,9 @@ http://friendfeed.com/api/room/friendfeed-news/subscribe?unsubscribe=1
 Example usage with `curl`:
 
 {{{
-curl -u "username:nickname" -d "apikey=APIKEY" http://friendfeed.com/api/room/friendfeed-news/subscribe
+curl -u "username:nickname" \
+  -d "apikey=APIKEY" \
+  http://friendfeed.com/api/room/friendfeed-news/subscribe
 }}}
 
 The returned JSON has the format:

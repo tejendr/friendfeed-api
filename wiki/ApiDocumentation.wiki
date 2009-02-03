@@ -385,20 +385,37 @@ Authentication is always required.
 
 === /api/feed/search - Search ===
 
-Executes a search over the entries in !FriendFeed. If the request is authenticated, the default scope is over all of the entries in the authenticated user's Friends Feed. If the request is not authenticated, the default scope is over all public entries.
+Executes a search over the entries in !FriendFeed. The default scope is over all public entries.
 
 http://friendfeed.com/api/feed/search?q=friendfeed
 
 The query syntax is the same syntax as http://friendfeed.com/search/advanced. The query operators are:
 
-  * `who:` -restricts the search to a specific user, e.g., `who:bret`
-  * `service:` restricts the search to a specific service ID, e.g., `service:twitter`
+  * `from:` return entries from a specific user, `from:bret`
+  * `room:` return entries within a specific room, `room:friendfeed-feedback`
+  * `friends:` return entries from all of that user's friends, `friends:bret`
+  * `service:` return entries from a particular service, `service:twitter`
+  * `intitle:` return entries with specific words in the entry title, `intitle:friendfeed`
+  * `incomment:` return entries with specific words in the entry's comments, `incomment:friendfeed`
+  * `comment:` return entries that have been commented on by a specific user, `comment:bret`
+  * `comments:` return entries with at least this many comments, `comments:10`
+  * `like:` return entries liked by a specific user, `like:bret`
+  * `likes:` return entries with at least this many likes, `likes:10`
+  * `-` exclude a term (word, user, etc.) from your search, `-from:bret`
+  * `,` perform an OR, `from:bret,bgolub`
+
+
+As a convenience feature you can use "me" in place of any nickname and we will replace it with the authenticated user's nickname:
+
+{{{
+curl -u "nickname:remotekey" http://friendfeed.com/api/feed/search?q=friends:me+friendfeed
+}}}
 
 Using the !FriendFeed Python library:
 
 {{{
 service = friendfeed.FriendFeed()
-feed = service.search("who:bret friendfeed")
+feed = service.search("from:bret friendfeed")
 for entry in feed["entries"]:
     print entry["title"]
 }}}

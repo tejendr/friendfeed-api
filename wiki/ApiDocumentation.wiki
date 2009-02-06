@@ -14,20 +14,9 @@
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#Feed_Formats Feed Formats]
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#Filtering_&_Paging Filtering & Paging]
     * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#Methods Methods]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/public_-_Fetch_all_Public_Entries /api/feed/public - Fetch all Public Entries]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/user/NICKNAME_-_Fetch_Entries_from_a_User /api/feed/user/NICKNAME - Fetch Entries from a User]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/user/NICKNAME/comments_-_Fetch_Entries_a_User_Has_Comm /api/feed/user/NICKNAME/comments - Fetch Entries a User Has Commented On]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/user/NICKNAME/likes_-_Fetch_Entries_a_User_Has_"L /api/feed/user/NICKNAME/likes - Fetch Entries a User Has "Liked"]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/user/NICKNAME/discussion_-_Fetch_Entries_a_User_Has_Co /api/feed/user/NICKNAME/discussion - Fetch Entries a User Has Commented On or "Liked"]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/user/NICKNAME/friends_-_Fetch_Entries_from_a_User' /api/feed/user/NICKNAME/friends - Fetch Entries from a User's Friends Feed]
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/user_-_Fetch_Entries_from_Multiple_Users /api/feed/user - Fetch Entries from Multiple Users]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/room/NICKNAME_-_Fetch_Entries_from_a_Room /api/feed/room/NICKNAME - Fetch Entries from a Room]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/entry/ENTRYID_-_Fetch_Entry_by_id /api/feed/entry/ENTRYID - Fetch Entry by id]
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/entry_-_Fetch_Multiple_Entries_by_ID /api/feed/entry - Fetch Multiple Entries by ID]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/home_-_Fetch_the_Friends_Feed /api/feed/home - Fetch the Friends Feed]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/rooms_-_Fetch_the_Rooms_Feed /api/feed/rooms - Fetch the Rooms Feed]
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/search_-_Search /api/feed/search - Search]
-      * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/list/NICKNAME_-_Fetch_Entries_from_a_List /api/feed/list/NICKNAME - Fetch Entries from a List]
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/url_-_Fetch_Entries_about_a_URL /api/feed/url - Fetch Entries about a URL]
       * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#/api/feed/domain_-_Fetch_Entries_from_a_domain /api/feed/domain - Fetch Entries from a domain]
   * [http://code.google.com/p/friendfeed-api/wiki/ApiDocumentation#Publishing_To_FriendFeed Publishing To FriendFeed]
@@ -238,75 +227,54 @@ All of the feed methods below support the following additional arguments:
 
 == Methods ==
 
-=== /api/feed/public - Fetch all Public Entries ===
-
-Returns the most recent public entries on !FriendFeed:
-
-http://friendfeed.com/api/feed/public
-
-Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
-
-{{{
-service = friendfeed.FriendFeed()
-feed = service.fetch_public_feed()
-for entry in feed["entries"]:
-    print entry["title"]
-}}}
-
-
-=== /api/feed/user/NICKNAME - Fetch Entries from a User === 
-
-Returns the most recent entries from the user with the given nickname:
-
-http://friendfeed.com/api/feed/user/bret
-
-If the user has a private feed, authentication is required.
-
-Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
-
-{{{
-service = friendfeed.FriendFeed()
-feed = service.fetch_user_feed("bret")
-for entry in feed["entries"]:
-    print entry["title"]
-}}}
-
-
-=== /api/feed/user/NICKNAME/comments - Fetch Entries a User Has Commented On === 
-
-Returns the most recent entries the user has commented on, ordered by the date of that user's comments:
-
-http://friendfeed.com/api/feed/user/bret/comments
-
-If the user has a private feed, authentication is required.
-
-
-=== /api/feed/user/NICKNAME/likes - Fetch Entries a User Has "Liked" === 
-
-Returns the most recent entries the user has "liked," ordered by the date of that user's "likes":
-
-http://friendfeed.com/api/feed/user/bret/likes
-
-If the user has a private feed, authentication is required.
-
-
-=== /api/feed/user/NICKNAME/discussion - Fetch Entries a User Has Commented On or "Liked" === 
-
-Returns the most recent entries the user has commented on or "liked":
-
-http://friendfeed.com/api/feed/user/bret/discussion
-
-If the user has a private feed, authentication is required.
-
-
-
-=== /api/feed/user/NICKNAME/friends - Fetch Entries from a User's Friends Feed === 
-
-Returns entries from a user's friends:
-
-http://friendfeed.com/api/feed/user/bret/friends
-
-If the user has a private feed, authentication is required.  Any friends of the user who have a private feed will be omitted unless authentication is used and the authenticated user has the privileged to see those feeds.
+<table>
+<tr><td>*Method* (and link to example)</td><td>*Description*</td></tr>
+<tr>
+  <td valign="top"><a href="http://friendfeed.com/api/feed/public">/api/feed/public</a></td>
+  <td>Returns the most recent public entries on !FriendFeed.</td>
+</tr>
+<tr>
+  <td valign="top"><a href="http://friendfeed.com/api/feed/user/bret">/api/feed/user/NICKNAME</a></td>
+  <td>Returns the most recent entries from the user with the given nickname. If the user has a private feed, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top"><a href="http://friendfeed.com/api/feed/user/bret/comments">/api/feed/user/NICKNAME/comments</a></td>
+  <td>Returns the most recent entries the user has commented on, ordered by the date of that user's comments. If the user has a private feed, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/user/bret/likes">/api/feed/user/NICKNAME/likes</a></td>
+  <td>Returns the most recent entries the user has "liked", ordered by the date of that user's "likes". If the user has a private feed, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/user/bret/discussion">/api/feed/user/NICKNAME/discussion</a></td>
+  <td>Returns the most recent entries the user has commented on or "liked". If the user has a private feed, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/user/bret/friends">/api/feed/user/NICKNAME/friends</a></td>
+  <td>Returns entries from a user's friends. If the user has a private feed, authentication is required.  Any friends of the user who have a private feed will be omitted unless authentication is used and the authenticated user has the privileged to see those feeds.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/room/friendfeed-news">/api/feed/room/NICKNAME</a></td>
+  <td>Returns the most recent entries in the room with the given nickname.  If the room is private, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/entry/7ad57cd3-30e6-253a-c745-6345b1bd0e78">/api/feed/entry/ENTRYID</a></td>
+  <td>Returns the entry with the given id.  If the entry is private, authentication is required.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/home"> /api/feed/home </a></td>
+  <td>Returns the entries the authenticated user would see on their !FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries.  Authentication is always required.
+</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/rooms"> /api/feed/rooms </a></td>
+  <td>Returns the entries the authenticated user would see on their Rooms page - entries from all of the rooms they are members of. Authentication is always required.</td>
+</tr>
+<tr>
+  <td valign="top" ><a href="http://friendfeed.com/api/feed/list/personal"> /api/feed/list/NICKNAME </a></td>
+  <td>Returns entries from the authenticated users list with the given nickname. Authentication is always required.</td>
+</tr>
+</table>
 
 === /api/feed/user - Fetch Entries from Multiple Users === 
 
@@ -330,24 +298,6 @@ You can also specify by email:
 http://friendfeed.com/api/feed/user?emails=example1@example.com,example2@example.com
 
 
-=== /api/feed/room/NICKNAME - Fetch Entries from a Room === 
-
-Returns the most recent entries in the room with the given nickname:
-
-http://friendfeed.com/api/feed/room/friendfeed-news
-
-If the room is private, authentication is required.
-
-
-=== /api/feed/entry/ENTRYID - Fetch Entry by id === 
-
-Returns the entry with the given id:
-
-http://friendfeed.com/api/feed/entry/7ad57cd3-30e6-253a-c745-6345b1bd0e78
-
-If the entry is private, authentication is required.
-
-
 === /api/feed/entry - Fetch Multiple Entries by ID === 
 
 Returns the requested entries, specified by id:
@@ -355,33 +305,6 @@ Returns the requested entries, specified by id:
 http://friendfeed.com/api/feed/entry?entry_id=7ad57cd3-30e6-253a-c745-6345b1bd0e78,6f6a36d2-a6c6-fbe7-6bb2-f328c8794eea
 
 Authentication is not required, but private entries will be omitted from unauthenticated results, as will entries the authenticated user does not have permission to view.
-
-
-=== /api/feed/home - Fetch the Friends Feed ===
-
-Returns the entries the authenticated user would see on their !FriendFeed homepage - all of their subscriptions and friend-of-a-friend entries:
-
-http://friendfeed.com/api/feed/home
-
-Authentication is always required.
-
-Using the [http://code.google.com/p/friendfeed-api/ FriendFeed Python library]:
-
-{{{
-service = friendfeed.FriendFeed(nickname, remote_key)
-feed = service.fetch_home_feed()
-for entry in feed["entries"]:
-    print entry["title"]
-}}}
-
-
-=== /api/feed/rooms - Fetch the Rooms Feed ===
-
-Returns the entries the authenticated user would see on their Rooms page - entries from all of the rooms they are members of:
-
-http://friendfeed.com/api/feed/rooms
-
-Authentication is always required.
 
 === /api/feed/search - Search ===
 
@@ -419,14 +342,6 @@ feed = service.search("from:bret friendfeed")
 for entry in feed["entries"]:
     print entry["title"]
 }}}
-
-=== /api/feed/list/NICKNAME - Fetch Entries from a List ===
-
-Returns entries from the authenticated users list with the given nickname:
-
-http://friendfeed.com/api/feed/list/personal
-
-Authentication is always required.
    
 === /api/feed/url - Fetch Entries about a URL ===
 

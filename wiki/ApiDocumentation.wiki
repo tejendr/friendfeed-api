@@ -760,6 +760,10 @@ The real-time methods are served from the host chan.friendfeed.com (all other me
   <td valign="top">[http://chan.friendfeed.com/api/updates/room/friendfeed-news /api/updates/room/NICKNAME]</td>
   <td>Returns updates to the room with the given nickname. If the room is private, then authentication is required.</td>
  </tr>
+ <tr>
+  <td valign="top">[http://chan.friendfeed.com/api/updates/user/bret /api/updates/user/NICKNAME]</td>
+  <td>Returns updates to the user feed with the given nickname. If the user has a private feed, then authentication is required.</td>
+ </tr>
 </table>
 
 = Miscellaneous Methods =

@@ -209,6 +209,7 @@ The JSON form of the feeds has the following structure:
     * `geo{}?` - present if the entry contains geographic information
       * `lat` - the latitude
       * `long` - the longitude
+    * `friendof{}?` - present if the entry is from a friend of a friend, same structure as the `user{}` structure above
 
 
 The simple XML format (`output=xml`) has the same structure as the JSON. The RSS and Atom formats use the standard RSS and Atom attributes for title, link, published, and updated, and include extension elements for all of the other meta-data.

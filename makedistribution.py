@@ -21,11 +21,16 @@ import os.path
 
 
 def main():
+    make_distribution("v1")
+    make_distribution("v2")
+
+
+def make_distribution(version):
     start_path = os.path.abspath(os.getcwd())
     abs_file = os.path.abspath(__file__)
-    abs_dir = os.path.dirname(abs_file)
+    abs_dir = os.path.join(os.path.dirname(abs_file), version)
     dist_files = []
-    for root, dirs, files in os.walk(os.path.dirname(__file__)):
+    for root, dirs, files in os.walk(abs_dir):
         for name in files:
             path = os.path.abspath(os.path.join(root, name))
             if not path.endswith("~") and not path.endswith("#") and \
@@ -34,19 +39,21 @@ def main():
                 dist_files.append(os.path.abspath(os.path.join(root, name)))
         if ".svn" in dirs:
             dirs.remove(".svn")
-    parent_dir = os.path.dirname(abs_dir) + os.sep
+    parent_dir = abs_dir + os.sep
     full_paths = [p[len(parent_dir):] for p in dist_files]
+    original_dir = os.getcwd()
     os.chdir(parent_dir)
 
-    output = os.path.join(start_path, "friendfeed-api.tar.gz")
+    output = os.path.join(start_path, "friendfeed-api-" + version + ".tar.gz")
     command = "tar cvzf " + output + " " + " ".join(full_paths)
     print command
     os.system(command)
 
-    output = os.path.join(start_path, "friendfeed-api.zip")
+    output = os.path.join(start_path, "friendfeed-api-" + version + ".zip")
     command = "zip " + output + " " + " ".join(full_paths)
     print command
     os.system(command)
+    os.chdir(original_dir)
 
 
 if __name__ == "__main__":

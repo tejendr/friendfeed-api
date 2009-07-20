@@ -14,7 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-"""Methods to interact with the FriendFeed API
+"""Methods to interact with the FriendFeed API v1.
 
 Detailed documentation is available at http://friendfeed.com/api/.
 

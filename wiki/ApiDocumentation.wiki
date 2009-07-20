@@ -1,7 +1,7 @@
 ﻿#labels Featured
 = !FriendFeed API Documentation =
 
-*A new version of the !FriendFeed API is available for beta testing. See http://friendfeed.com/api/documentation*
+*A new version of the !FriendFeed API is available for beta testing. See http://friendfeed.com/api/documentation *
 
 = Table of Contents =
 

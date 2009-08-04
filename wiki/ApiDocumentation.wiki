@@ -1,7 +1,7 @@
-﻿#labels Featured
-= !FriendFeed API Documentation =
+﻿#labels Deprecated
+= !FriendFeed API Documentation Version 1 =
 
-<font color="red">*A new version of the !FriendFeed API is available for beta testing. See http://friendfeed.com/api/documentation *</font>
+<font color="red">*This version of the !FriendFeed API has been deprecated. See http://friendfeed.com/api/documentation for the latest version. *</font>
 
 = Table of Contents =
 

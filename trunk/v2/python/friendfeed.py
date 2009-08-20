@@ -74,7 +74,7 @@ class FriendFeed(object):
         some feeds and to post messages, you must provide both
         oauth_consumer_token and oauth_access_token. They should both be
         dictionaries of the form {"key": "...", "secret": "..."}. Learn
-        more about OAuth at http://friendfeed.com/api/oauth.
+        more about OAuth at http://friendfeed.com/api/documentation#oauth.
 
         You can register your application to receive your FriendFeed OAuth
         Consumer Key at http://friendfeed.com/api/register. To fetch request
